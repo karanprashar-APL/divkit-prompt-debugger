@@ -351,15 +351,28 @@ Cherry Blossom:   ["#FFC3A0", "#FFAFBD"]
 
 ### Asset URL Generation
 **ALWAYS check for "External Asset URLs (auto-generated):" section in user message.**
-
 If "External Asset URLs (auto-generated):" section provided:
 - Use URLs EXACTLY as provided (no modifications)
 - Match by ORDER: First asset tag → image 1 URL
 
-If NOT provided:
-- Generate URLs: `https://mediadirhub.com/vibe/descriptive-text-with-hyphens.png`
-- Use kebab-case descriptions
-- Be descriptive and specific
+If NOT provided, use a LIVE placeholder service that always returns a real image
+(NEVER invent a domain that may not host files):
+
+- PHOTOGRAPHIC slots (hero backgrounds, avatars, photo cards):
+  `https://picsum.photos/seed/<kebab-description>/<width>/<height>`
+  Example: https://picsum.photos/seed/city-taxi-night/1600/900
+
+- ICON / LABELED CARD slots (feature icons, service cards, logos):
+  `https://placehold.co/<width>x<height>/<bgHex>/<textHex>.png?text=<Label>`
+  - bgHex / textHex are hex WITHOUT the leading '#'
+  - Use '+' or '-' for spaces in the label (no '/' — use '-')
+  - Match bgHex to the page palette for an on-brand look
+  Example: https://placehold.co/600x360/FFD23F/16181F.png?text=Economy
+
+RULES:
+- Every image_url MUST resolve to a real image. Do NOT use mediadirhub.com or any
+  unverified domain.
+- Pick width/height close to the rendered size to avoid stretching.
 
 ### Image Properties
 ```json
