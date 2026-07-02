@@ -13,20 +13,17 @@ divkit-prompt-debugger/
 │
 ├── README.md
 │
-├── tc001/
-│   ├── prompt.md
-│   ├── test.json
-│   └── changelog.md
+├── TC001/
+│   ├── Prompt.md
+│   ├── output.json
+│   ├── __structure__.json
+│   └── change_log.md
 │
-├── tc002/
-│   ├── prompt.md
-│   ├── test.json
-│   └── changelog.md
-│
-├── tc003/
-│   ├── prompt.md
-│   ├── test.json
-│   └── changelog.md
+├── TC002/
+│   ├── Prompt.md
+│   ├── output.json
+│   ├── __structure__.json
+│   └── change_log.md
 │
 └── ...
 ```
@@ -39,21 +36,24 @@ Each **Test Case (TC)** represents one prompt debugging session.
 
 A test case contains:
 
-* **prompt.md** — The current version of the prompt being tested.
-* **test.json** — The latest DivKit JSON generated from the prompt.
-* **changelog.md** — A record of issues found, prompt improvements, and iteration history.
+* **Prompt.md** — The current version of the prompt being tested.
+* **output.json** — The latest DivKit JSON generated from the prompt.
+* **__structure__.json** — The structure metadata emitted after the DivKit JSON (the `__STRUCTURE__` block).
+* **change_log.md** — A record of issues found, prompt improvements, and iteration history.
 
 Each test case is independent, making it easy to compare different prompts, revisit previous work, and track progress over time.
+
+Test cases hold only these artifacts. Local tooling (renderers, preview servers, editor config, scratch drafts, image assets) is kept out of the repo — the value lives in the prompt and its documented iterations, not in the scaffolding used to test them.
 
 ---
 
 # Workflow
 
-1. Open the test case folder (e.g., `tc001`).
-2. Review or update `prompt.md`.
+1. Open the test case folder (e.g., `TC001`).
+2. Review or update `Prompt.md`.
 3. Generate DivKit JSON using the prompt.
-4. Save the generated output in `test.json`.
-5. Render the JSON in DivKit.
+4. Save the generated output in `output.json` and the structure metadata in `__structure__.json`.
+5. Render the JSON in DivKit (at the target viewport, e.g. 1920×1080 for desktop web).
 6. Review the rendered UI for:
 
    * JSON validation errors
@@ -62,9 +62,9 @@ Each test case is independent, making it easy to compare different prompts, revi
    * Visual inconsistencies
    * Component misuse
    * Overall design quality
-7. Identify the root cause of each issue.
+7. Identify the root cause of each issue **in the prompt** (not just the output).
 8. Improve the prompt to prevent the issue from recurring.
-9. Record all findings and prompt updates in `changelog.md`.
+9. Record all findings and prompt updates in `change_log.md`.
 10. Repeat until the generated layout meets the expected quality.
 
 ---

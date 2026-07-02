@@ -261,6 +261,21 @@ Before output:
 
 ## STYLING REFERENCE
 
+### Color Format (CRITICAL — alpha goes FIRST)
+DivKit colors are `#AARRGGBB` — the ALPHA (transparency) is the FIRST two hex digits, then RGB.
+This is the OPPOSITE of CSS (`#RRGGBBAA`). NEVER put the alpha at the end.
+
+To add transparency, prefix the 6-digit color with a 2-digit alpha:
+- `FF` = 100% opaque · `BF` = 75% · `80` = 50% · `40` = 25% · `00` = fully transparent
+
+Examples:
+- 80% black overlay → `#CC000000`  (NOT `#000000CC`)
+- 12% white fill   → `#20FFFFFF`  (NOT `#FFFFFF20`)
+- 50% black shadow → `#80000000`  (NOT `#00000080`)
+
+Fully opaque colors stay 6 digits: `#FFD23F`, `#16181F`, `#FFFFFF`.
+A wrong order fails SILENTLY (no JSON error) — e.g. `#000000CC` renders fully transparent.
+
 ### Size Types
 ```json
 {"type": "fixed", "value": 100}      // Exact pixels
@@ -280,13 +295,13 @@ Before output:
 // Image background (for heroes/banners)
 [{"type": "image", "image_url": "...", "scale": "fill"}]
 
-// Semi-transparent overlay
-[{"type": "solid", "color": "#000000CC"}] // 80% black overlay
+// Semi-transparent overlay (alpha FIRST)
+[{"type": "solid", "color": "#CC000000"}] // 80% black overlay
 
 // Dual background (image + overlay)
 [
   {"type": "image", "image_url": "...", "scale": "fill"},
-  {"type": "solid", "color": "#00000066"}
+  {"type": "solid", "color": "#66000000"}
 ]
 ```
 
@@ -329,7 +344,7 @@ Cherry Blossom:   ["#FFC3A0", "#FFAFBD"]
 
 ### Text Shadow (for text on images)
 ```json
-"text_shadow": {"offset": {"x": 0, "y": 2}, "blur": 8, "color": "#00000080"}
+"text_shadow": {"offset": {"x": 0, "y": 2}, "blur": 8, "color": "#80000000"}
 ```
 
 ### Web Typography Scale
@@ -378,7 +393,7 @@ RULES:
 ```json
 {
   "type": "image",
-  "image_url": "https://mediadirhub.com/vibe/description.png",
+  "image_url": "https://picsum.photos/seed/description/1200/400",
   "width": {"type": "match_parent"},
   "height": {"type": "fixed", "value": 400},
   "scale": "fill",
@@ -447,11 +462,11 @@ RULES:
   "type": "container",
   "orientation": "overlap",
   "width": {"type": "match_parent"},
-  "height": {"type": "fixed", "value": 500},
+  "height": {"type": "fixed", "value": 720},
   "items": [
     {
       "type": "image",
-      "image_url": "https://mediadirhub.com/vibe/hero-image-description.png",
+      "image_url": "https://picsum.photos/seed/hero-image/1600/900",
       "width": {"type": "match_parent"},
       "height": {"type": "match_parent"},
       "scale": "fill"
@@ -461,7 +476,7 @@ RULES:
       "orientation": "vertical",
       "width": {"type": "match_parent"},
       "height": {"type": "match_parent"},
-      "background": [{"type": "gradient", "colors": ["#00000000", "#000000CC"], "angle": 180}],
+      "background": [{"type": "gradient", "colors": ["#00000000", "#CC000000"], "angle": 180}],
       "content_alignment_vertical": "end",
       "paddings": {"left": 48, "right": 48, "bottom": 64, "top": 48},
       "items": [
@@ -472,7 +487,7 @@ RULES:
           "font_weight": "bold",
           "text_color": "#FFFFFF",
           "line_height": 50,
-          "text_shadow": {"offset": {"x": 0, "y": 2}, "blur": 12, "color": "#00000060"}
+          "text_shadow": {"offset": {"x": 0, "y": 2}, "blur": 12, "color": "#60000000"}
         },
         {
           "type": "text",
@@ -509,8 +524,8 @@ RULES:
               "font_size": 16,
               "font_weight": "medium",
               "text_color": "#FFFFFF",
-              "background": [{"type": "solid", "color": "#FFFFFF20"}],
-              "border": {"corner_radius": 12, "stroke": {"color": "#FFFFFF80", "width": 1}},
+              "background": [{"type": "solid", "color": "#20FFFFFF"}],
+              "border": {"corner_radius": 12, "stroke": {"color": "#80FFFFFF", "width": 1}},
               "paddings": {"top": 16, "bottom": 16, "left": 32, "right": 32},
               "width": {"type": "wrap_content"},
               "margins": {"left": 16},
@@ -530,7 +545,7 @@ RULES:
   "type": "container",
   "orientation": "horizontal",
   "width": {"type": "match_parent"},
-  "height": {"type": "fixed", "value": 480},
+"height": {"type": "fixed", "value": 720},
   "background": [{"type": "solid", "color": "#F8F9FA"}],
   "items": [
     {
@@ -550,14 +565,14 @@ RULES:
           "margins": {"top": 32},
           "items": [
             {"type": "text", "role": "button", "text": "Start Free Trial", "font_size": 16, "font_weight": "medium", "text_color": "#FFFFFF", "background": [{"type": "gradient", "colors": ["#667EEA", "#764BA2"], "angle": 90}], "border": {"corner_radius": 12}, "paddings": {"top": 16, "bottom": 16, "left": 28, "right": 28}, "width": {"type": "wrap_content"}, "action": {"log_id": "hero_trial", "url": "action://trial"}},
-            {"type": "text", "role": "button", "text": "Watch Demo", "font_size": 16, "font_weight": "medium", "text_color": "#667EEA", "background": [{"type": "solid", "color": "#667EEA15"}], "border": {"corner_radius": 12, "stroke": {"color": "#667EEA", "width": 1}}, "paddings": {"top": 16, "bottom": 16, "left": 28, "right": 28}, "width": {"type": "wrap_content"}, "margins": {"left": 12}, "action": {"log_id": "hero_demo", "url": "action://demo"}}
+            {"type": "text", "role": "button", "text": "Watch Demo", "font_size": 16, "font_weight": "medium", "text_color": "#667EEA", "background": [{"type": "solid", "color": "#15667EEA"}], "border": {"corner_radius": 12, "stroke": {"color": "#667EEA", "width": 1}}, "paddings": {"top": 16, "bottom": 16, "left": 28, "right": 28}, "width": {"type": "wrap_content"}, "margins": {"left": 12}, "action": {"log_id": "hero_demo", "url": "action://demo"}}
           ]
         }
       ]
     },
     {
       "type": "image",
-      "image_url": "https://mediadirhub.com/vibe/hero-dashboard-preview.png",
+      "image_url": "https://picsum.photos/seed/hero-dashboard/1200/900",
       "width": {"type": "match_parent", "weight": 1},
       "height": {"type": "match_parent"},
       "scale": "fill",
@@ -591,7 +606,7 @@ RULES:
         {
           "type": "_template_feature_card",
           "items": [
-            {"type": "_template_feature_icon", "image_url": "https://mediadirhub.com/vibe/lightning-bolt-icon-blue.png"},
+            {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/4F46E5/FFFFFF.png?text=Fast"},
             {"type": "_template_feature_title", "text": "Lightning Fast"},
             {"type": "_template_feature_description", "text": "Optimized performance that loads in milliseconds"}
           ]
@@ -599,7 +614,7 @@ RULES:
         {
           "type": "_template_feature_card",
           "items": [
-            {"type": "_template_feature_icon", "image_url": "https://mediadirhub.com/vibe/shield-security-icon-green.png"},
+            {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/2ECC71/FFFFFF.png?text=Secure"},
             {"type": "_template_feature_title", "text": "Enterprise Security"},
             {"type": "_template_feature_description", "text": "Bank-grade encryption and compliance standards"}
           ]
@@ -607,7 +622,7 @@ RULES:
         {
           "type": "_template_feature_card",
           "items": [
-            {"type": "_template_feature_icon", "image_url": "https://mediadirhub.com/vibe/chart-analytics-icon-purple.png"},
+            {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/8B5CF6/FFFFFF.png?text=Stats"},
             {"type": "_template_feature_title", "text": "Smart Analytics"},
             {"type": "_template_feature_description", "text": "Real-time insights and actionable intelligence"}
           ]
@@ -679,8 +694,9 @@ RULES:
   "orientation": "vertical",
   "width": {"type": "match_parent"},
   "height": {"type": "wrap_content"},
-  "paddings": {"left": 24, "right": 24, "top": 64, "bottom": 64},
+   "paddings": {"left": 24, "right": 24, "top": 64, "bottom": 64},
   "background": [{"type": "solid", "color": "#F8F9FA"}],
+  "content_alignment_horizontal": "center",
   "items": [
     {"type": "text", "text": "What Our Clients Say", "font_size": 32, "font_weight": "bold", "text_color": "#1A1A1A", "text_alignment_horizontal": "center"},
     {"type": "text", "text": "Trusted by thousands of businesses worldwide", "font_size": 16, "text_color": "#666666", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 40}},
@@ -688,6 +704,7 @@ RULES:
       "type": "gallery",
       "orientation": "horizontal",
       "item_spacing": 16,
+      "width": {"type": "wrap_content"},
       "height": {"type": "wrap_content"},
       "paddings": {"left": 8, "right": 8},
       "items": [
@@ -702,7 +719,7 @@ RULES:
               "margins": {"top": 20},
               "content_alignment_vertical": "center",
               "items": [
-                {"type": "image", "image_url": "https://mediadirhub.com/vibe/professional-woman-headshot.png", "width": {"type": "fixed", "value": 44}, "height": {"type": "fixed", "value": 44}, "scale": "fill", "border": {"corner_radius": 22}},
+                {"type": "image", "image_url": "https://picsum.photos/seed/person-1/120/120", "width": {"type": "fixed", "value": 44}, "height": {"type": "fixed", "value": 44}, "scale": "fill", "border": {"corner_radius": 22}},
                 {
                   "type": "container",
                   "orientation": "vertical",
@@ -743,7 +760,7 @@ RULES:
       "content_alignment_horizontal": "center",
       "items": [
         {"type": "text", "role": "button", "text": "Start Free Trial", "font_size": 16, "font_weight": "bold", "text_color": "#4F46E5", "background": [{"type": "solid", "color": "#FFFFFF"}], "border": {"corner_radius": 12}, "paddings": {"top": 16, "bottom": 16, "left": 32, "right": 32}, "width": {"type": "wrap_content"}, "action": {"log_id": "cta_banner_trial", "url": "action://trial"}},
-        {"type": "text", "role": "button", "text": "Contact Sales", "font_size": 16, "font_weight": "medium", "text_color": "#FFFFFF", "background": [{"type": "solid", "color": "#FFFFFF20"}], "border": {"corner_radius": 12, "stroke": {"color": "#FFFFFF60", "width": 1}}, "paddings": {"top": 16, "bottom": 16, "left": 32, "right": 32}, "width": {"type": "wrap_content"}, "margins": {"left": 16}, "action": {"log_id": "cta_banner_contact", "url": "action://contact"}}
+        {"type": "text", "role": "button", "text": "Contact Sales", "font_size": 16, "font_weight": "medium", "text_color": "#FFFFFF", "background": [{"type": "solid", "color": "#20FFFFFF"}], "border": {"corner_radius": 12, "stroke": {"color": "#60FFFFFF", "width": 1}}, "paddings": {"top": 16, "bottom": 16, "left": 32, "right": 32}, "width": {"type": "wrap_content"}, "margins": {"left": 16}, "action": {"log_id": "cta_banner_contact", "url": "action://contact"}}
       ]
     }
   ]
@@ -831,7 +848,7 @@ RULES:
       "width": {"type": "fixed", "value": 280},
       "action": {"log_id": "content_1", "url": "action://content_1"},
       "items": [
-        {"type": "_template_content_image", "image_url": "https://mediadirhub.com/vibe/content-image-1.png"},
+        {"type": "_template_content_image", "image_url": "https://placehold.co/560x320/4F46E5/FFFFFF.png?text=Content"},
         {"type": "_template_content_title", "text": "Content Title"},
         {"type": "_template_content_description", "text": "Brief description of this content item"}
       ]
@@ -870,7 +887,7 @@ RULES:
           "type": "_template_blog_card",
           "action": {"log_id": "blog_1", "url": "action://blog_1"},
           "items": [
-            {"type": "_template_blog_image", "image_url": "https://mediadirhub.com/vibe/blog-post-1.png"},
+            {"type": "_template_blog_image", "image_url": "https://placehold.co/600x360/4F46E5/FFFFFF.png?text=Article"},
             {"type": "text", "text": "Design", "font_size": 12, "font_weight": "medium", "text_color": "#4F46E5", "margins": {"top": 16, "left": 16}},
             {"type": "_template_blog_title", "text": "10 Design Trends Shaping the Future"},
             {"type": "_template_blog_excerpt", "text": "Explore the latest design trends that are reshaping how we create digital experiences..."},
@@ -899,20 +916,30 @@ RULES:
       "type": "gallery",
       "orientation": "horizontal",
       "item_spacing": 40,
+      "width": {"type": "wrap_content"},
       "height": {"type": "wrap_content"},
       "margins": {"top": 32},
       "paddings": {"left": 16, "right": 16},
       "items": [
-        {"type": "image", "image_url": "https://mediadirhub.com/vibe/partner-logo-1.png", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit", "tint_color": "#CCCCCC"},
-        {"type": "image", "image_url": "https://mediadirhub.com/vibe/partner-logo-2.png", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit", "tint_color": "#CCCCCC"},
-        {"type": "image", "image_url": "https://mediadirhub.com/vibe/partner-logo-3.png", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit", "tint_color": "#CCCCCC"},
-        {"type": "image", "image_url": "https://mediadirhub.com/vibe/partner-logo-4.png", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit", "tint_color": "#CCCCCC"}
+        {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+1", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+        {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+2", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+        {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+3", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+        {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+4", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"}
       ]
     }
   ]
 }
 ```
-
+### CENTERING HORIZONTAL GALLERIES — MANDATORY
+A gallery defaults to match_parent width and ALWAYS left-aligns its items;
+the parent's content_alignment cannot move them. Any horizontal gallery
+whose total content width (items + spacing) is clearly narrower than a
+desktop page — logo bars, 2–5 card rows — MUST set:
+  "width": {"type": "wrap_content"}
+and its parent container MUST set:
+  "content_alignment_horizontal": "center"
+Leave gallery width as match_parent ONLY when there are enough items to
+overflow and scroll at desktop widths (6+ full-size cards).
 ---
 
 ## TEXT CONTRAST RULES (MANDATORY)
@@ -949,8 +976,8 @@ Unlike mobile apps, website home pages SHOULD have multiple CTAs throughout:
 // GRADIENT - Eye-catching gradient
 {"type": "text", "role": "button", "text": "Try Now", "font_size": 16, "font_weight": "bold", "text_color": "#FFFFFF", "background": [{"type": "gradient", "colors": ["#667EEA", "#764BA2"], "angle": 90}], "border": {"corner_radius": 12}, "paddings": {"top": 16, "bottom": 16, "left": 32, "right": 32}, "width": {"type": "wrap_content"}}
 
-// GHOST - Minimal on dark backgrounds
-{"type": "text", "role": "button", "text": "Watch Demo", "font_size": 16, "font_weight": "medium", "text_color": "#FFFFFF", "background": [{"type": "solid", "color": "#FFFFFF15"}], "border": {"corner_radius": 12, "stroke": {"color": "#FFFFFF40", "width": 1}}, "paddings": {"top": 14, "bottom": 14, "left": 28, "right": 28}, "width": {"type": "wrap_content"}}
+// GHOST - Minimal on dark backgrounds (alpha FIRST)
+{"type": "text", "role": "button", "text": "Watch Demo", "font_size": 16, "font_weight": "medium", "text_color": "#FFFFFF", "background": [{"type": "solid", "color": "#15FFFFFF"}], "border": {"corner_radius": 12, "stroke": {"color": "#40FFFFFF", "width": 1}}, "paddings": {"top": 14, "bottom": 14, "left": 28, "right": 28}, "width": {"type": "wrap_content"}}
 ```
 
 **CTA Text Strategy for Websites:**
@@ -964,7 +991,7 @@ Unlike mobile apps, website home pages SHOULD have multiple CTAs throughout:
 
 | Shape | Image Height | Carousel Card Width | Grid Width | Use For |
 |-------|-------------|-------------------|------------|---------|
-| TALL_HERO | 400-600px | N/A | match_parent | Hero sections |
+| TALL_HERO | 650-850px (from first-screen budget) | N/A | match_parent | Hero sections |
 | LANDSCAPE_WIDE | 200-280px | 320px (fixed) | match_parent | Blog previews, featured content |
 | PORTRAIT | 240px | 200px (fixed) | match_parent | Team members, products |
 | SQUARE | 160-200px | 200px (fixed) | match_parent | Features, categories |
@@ -1022,6 +1049,28 @@ Before output:
 ### Minimum Section Count: 7
 Every website home page must have AT LEAST 7 distinct sections from the available types. This ensures a complete, professional website feel.
 
+### FIRST-SCREEN RULE (Desktop Web) — MANDATORY
+DivKit has no viewport units (no vh/vw), so first-screen sizing uses fixed
+heights chosen from a height budget:
+
+1. If the user message contains a "Target Viewport:" line (e.g. "Target
+   Viewport: 1920x1080"), use that height as the budget.
+2. Otherwise assume a common desktop viewport (1280–1920 wide, 800–1080
+   tall) and design to a ~950–1000px budget so it works across that range.
+
+The budget must be filled by exactly: Navbar + Hero + Trust Bar (if used).
+- Navbar: ~70–80px (wrap_content)
+- Hero: "height": {"type": "fixed", "value": budget − navbar − trust bar},
+  with "content_alignment_vertical": "center". With the default assumption
+  this lands at 680–780px. NEVER wrap_content with small paddings, NEVER
+  400–600px for web.
+- Trust bar: ~180–220px, placed directly after the hero so it closes the
+  first screen.
+- No trust bar → the hero absorbs its space.
+
+Nothing from the features/content sections should be visible before the
+first scroll at the budgeted height.
+
 ### Recommended Section Flow
 A typical stunning website home page follows this pattern:
 1. **Navigation Bar** — Brand + links + CTA
@@ -1050,7 +1099,8 @@ A typical stunning website home page follows this pattern:
 - Using deprecated types: `grid`, `scroll`, `scrollview`, `view`, `button`
 - Invalid JSON syntax (mismatched braces, missing commas, trailing commas)
 - Invisible text (white on white, dark on dark)
-- `placeholder://` URLs when real URLs are available
+- Trailing-alpha colors (`#RRGGBBAA`). DivKit uses alpha FIRST (`#AARRGGBB`)
+- `placeholder://` URLs or unverified domains (e.g. mediadirhub.com)
 - Empty templates (0 usage)
 - Transparent root container background
 - Missing template definitions for repeated structures
@@ -1129,6 +1179,8 @@ Before outputting JSON, verify:
 - [ ] Background variety (mix of light, dark, gradient, image)
 - [ ] Spacing rhythm (alternating generous/comfortable padding)
 - [ ] No invisible text
+- [ ] All transparent colors use alpha-FIRST format (#AARRGGBB)
+- [ ] Navbar + hero + trust bar fill the first-screen budget; narrow horizontal galleries use wrap_content width inside a centered parent.
 
 **Content:**
 - [ ] Domain-specific text throughout
@@ -1138,7 +1190,8 @@ Before outputting JSON, verify:
 
 **Images:**
 - [ ] Real URLs used if provided
-- [ ] Descriptive kebab-case URLs if generated
+- [ ] Live placeholder services used otherwise (picsum.photos / placehold.co)
+- [ ] No unverified domains (e.g. mediadirhub.com)
 - [ ] Appropriate image sizes for context
 
 **Syntax:**

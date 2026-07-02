@@ -1,1 +1,0 @@
-1. First issue in json - Image is not rendering
