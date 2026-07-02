@@ -1,0 +1,568 @@
+{
+  "templates": {
+    "_template_feature_card": {
+      "type": "container",
+      "orientation": "vertical",
+      "width": {"type": "match_parent"},
+      "height": {"type": "wrap_content"},
+      "background": [{"type": "solid", "color": "#FFFFFF"}],
+      "border": {"corner_radius": 16, "stroke": {"color": "#EDE3CC", "width": 1}},
+      "paddings": {"left": 24, "right": 24, "top": 28, "bottom": 28}
+    },
+    "_template_feature_icon": {
+      "type": "image",
+      "width": {"type": "fixed", "value": 56},
+      "height": {"type": "fixed", "value": 56},
+      "scale": "fill",
+      "border": {"corner_radius": 14}
+    },
+    "_template_feature_title": {
+      "type": "text",
+      "font_size": 18,
+      "font_weight": "bold",
+      "text_color": "#4A3A28",
+      "margins": {"top": 18}
+    },
+    "_template_feature_description": {
+      "type": "text",
+      "font_size": 14,
+      "text_color": "#7A6A56",
+      "line_height": 22,
+      "margins": {"top": 8}
+    },
+    "_template_product_card": {
+      "type": "container",
+      "orientation": "vertical",
+      "width": {"type": "fixed", "value": 260},
+      "height": {"type": "wrap_content"},
+      "background": [{"type": "solid", "color": "#FFFFFF"}],
+      "border": {"corner_radius": 16, "stroke": {"color": "#EDE3CC", "width": 1}}
+    },
+    "_template_product_image": {
+      "type": "image",
+      "width": {"type": "match_parent"},
+      "height": {"type": "fixed", "value": 180},
+      "scale": "fill",
+      "border": {"corners_radius": {"top_left": 16, "top_right": 16, "bottom_left": 0, "bottom_right": 0}}
+    },
+    "_template_product_title": {
+      "type": "text",
+      "font_size": 16,
+      "font_weight": "bold",
+      "text_color": "#4A3A28",
+      "margins": {"top": 14, "left": 16, "right": 16}
+    },
+    "_template_product_description": {
+      "type": "text",
+      "font_size": 13,
+      "text_color": "#7A6A56",
+      "line_height": 20,
+      "margins": {"top": 6, "left": 16, "right": 16, "bottom": 16}
+    },
+    "_template_testimonial_card": {
+      "type": "container",
+      "orientation": "vertical",
+      "width": {"type": "fixed", "value": 340},
+      "height": {"type": "wrap_content"},
+      "background": [{"type": "solid", "color": "#FBF7EE"}],
+      "border": {"corner_radius": 16, "stroke": {"color": "#EDE3CC", "width": 1}},
+      "paddings": {"left": 28, "right": 28, "top": 28, "bottom": 28}
+    }
+  },
+  "card": {
+    "log_id": "sunroot-bakery-homepage",
+    "states": [
+      {
+        "state_id": 0,
+        "div": {
+          "type": "container",
+          "orientation": "vertical",
+          "background": [{"type": "solid", "color": "#FBF7EE"}],
+          "width": {"type": "match_parent"},
+          "height": {"type": "wrap_content"},
+          "items": [
+            {
+              "type": "container",
+              "orientation": "horizontal",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#FFFFFF"}],
+              "paddings": {"left": 48, "right": 48, "top": 18, "bottom": 18},
+              "content_alignment_vertical": "center",
+              "items": [
+                {
+                  "type": "text",
+                  "text": "Sunroot Bakery",
+                  "font_size": 22,
+                  "font_weight": "bold",
+                  "text_color": "#4A3A28",
+                  "width": {"type": "wrap_content"}
+                },
+                {
+                  "type": "container",
+                  "orientation": "horizontal",
+                  "width": {"type": "match_parent", "weight": 1},
+                  "height": {"type": "wrap_content"},
+                  "content_alignment_horizontal": "end",
+                  "content_alignment_vertical": "center",
+                  "items": [
+                    {"type": "text", "text": "Home", "font_size": 15, "font_weight": "medium", "text_color": "#4A3A28", "margins": {"right": 28}},
+                    {"type": "text", "text": "Menu", "font_size": 15, "text_color": "#7A6A56", "margins": {"right": 28}},
+                    {"type": "text", "text": "Our Story", "font_size": 15, "text_color": "#7A6A56", "margins": {"right": 28}},
+                    {"type": "text", "text": "Contact", "font_size": 15, "text_color": "#7A6A56", "margins": {"right": 28}},
+                    {
+                      "type": "text",
+                      "role": "button",
+                      "text": "Order Online",
+                      "font_size": 14,
+                      "font_weight": "medium",
+                      "text_color": "#FFFFFF",
+                      "background": [{"type": "solid", "color": "#7C9473"}],
+                      "border": {"corner_radius": 8},
+                      "paddings": {"top": 10, "bottom": 10, "left": 20, "right": 20},
+                      "width": {"type": "wrap_content"},
+                      "action": {"log_id": "nav_order_online", "url": "action://order_online"}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "horizontal",
+              "width": {"type": "match_parent"},
+              "height": {"type": "fixed", "value": 700},
+              "background": [{"type": "solid", "color": "#F3E9D2"}],
+              "items": [
+                {
+                  "type": "container",
+                  "orientation": "vertical",
+                  "width": {"type": "match_parent", "weight": 1},
+                  "height": {"type": "match_parent"},
+                  "paddings": {"left": 48, "right": 32, "top": 0, "bottom": 0},
+                  "content_alignment_vertical": "center",
+                  "items": [
+                    {
+                      "type": "text",
+                      "text": "Baked Fresh, Every Single Morning",
+                      "font_size": 42,
+                      "font_weight": "bold",
+                      "text_color": "#4A3A28",
+                      "line_height": 50
+                    },
+                    {
+                      "type": "text",
+                      "text": "From crusty sourdough to buttery pastries, Sunroot Bakery brings simple, honest ingredients to your table every day.",
+                      "font_size": 16,
+                      "text_color": "#6B5A46",
+                      "line_height": 26,
+                      "margins": {"top": 20}
+                    },
+                    {
+                      "type": "container",
+                      "orientation": "horizontal",
+                      "width": {"type": "wrap_content"},
+                      "margins": {"top": 32},
+                      "items": [
+                        {
+                          "type": "text",
+                          "role": "button",
+                          "text": "View Our Menu",
+                          "font_size": 16,
+                          "font_weight": "bold",
+                          "text_color": "#FFFFFF",
+                          "background": [{"type": "solid", "color": "#7C9473"}],
+                          "border": {"corner_radius": 12},
+                          "paddings": {"top": 16, "bottom": 16, "left": 30, "right": 30},
+                          "width": {"type": "wrap_content"},
+                          "action": {"log_id": "hero_view_menu", "url": "action://menu"}
+                        },
+                        {
+                          "type": "text",
+                          "role": "button",
+                          "text": "Visit Us",
+                          "font_size": 16,
+                          "font_weight": "medium",
+                          "text_color": "#4A3A28",
+                          "border": {"corner_radius": 12, "stroke": {"color": "#4A3A28", "width": 2}},
+                          "paddings": {"top": 14, "bottom": 14, "left": 28, "right": 28},
+                          "width": {"type": "wrap_content"},
+                          "margins": {"left": 16},
+                          "action": {"log_id": "hero_visit_us", "url": "action://location"}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "image_url": "https://picsum.photos/seed/sunroot-bakery-bread/1200/900",
+                  "width": {"type": "match_parent", "weight": 1},
+                  "height": {"type": "match_parent"},
+                  "scale": "fill"
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#FBF7EE"}],
+              "paddings": {"top": 40, "bottom": 40, "left": 24, "right": 24},
+              "content_alignment_horizontal": "center",
+              "items": [
+                {"type": "text", "text": "MADE WITH INGREDIENTS FROM", "font_size": 13, "font_weight": "medium", "text_color": "#9C8B74", "text_alignment_horizontal": "center", "letter_spacing": 2},
+                {
+                  "type": "gallery",
+                  "orientation": "horizontal",
+                  "item_spacing": 40,
+                  "width": {"type": "wrap_content"},
+                  "height": {"type": "wrap_content"},
+                  "margins": {"top": 24},
+                  "items": [
+                    {"type": "image", "image_url": "https://placehold.co/120x40/E8D4A9/6B5A46.png?text=Millbrook+Farm", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+                    {"type": "image", "image_url": "https://placehold.co/120x40/E8D4A9/6B5A46.png?text=Valley+Dairy", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+                    {"type": "image", "image_url": "https://placehold.co/120x40/E8D4A9/6B5A46.png?text=Grainhouse+Co", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+                    {"type": "image", "image_url": "https://placehold.co/120x40/E8D4A9/6B5A46.png?text=Orchard+Lane", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"}
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#FFFFFF"}],
+              "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
+              "items": [
+                {"type": "text", "text": "Why People Love Us", "font_size": 32, "font_weight": "bold", "text_color": "#4A3A28", "text_alignment_horizontal": "center"},
+                {"type": "text", "text": "Simple ingredients, honest process, real flavor", "font_size": 16, "text_color": "#7A6A56", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 40}},
+                {
+                  "type": "gallery",
+                  "orientation": "vertical",
+                  "column_count": 4,
+                  "item_spacing": 20,
+                  "height": {"type": "wrap_content"},
+                  "items": [
+                    {
+                      "type": "_template_feature_card",
+                      "items": [
+                        {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/7C9473/FFFFFF.png?text=Wheat"},
+                        {"type": "_template_feature_title", "text": "Stone-Milled Flour"},
+                        {"type": "_template_feature_description", "text": "Sourced locally and milled fresh for deeper flavor"}
+                      ]
+                    },
+                    {
+                      "type": "_template_feature_card",
+                      "items": [
+                        {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/D9BC8C/4A3A28.png?text=Oven"},
+                        {"type": "_template_feature_title", "text": "Baked Daily"},
+                        {"type": "_template_feature_description", "text": "Every loaf and pastry made fresh before sunrise"}
+                      ]
+                    },
+                    {
+                      "type": "_template_feature_card",
+                      "items": [
+                        {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/4A3A28/E8D4A9.png?text=Leaf"},
+                        {"type": "_template_feature_title", "text": "No Preservatives"},
+                        {"type": "_template_feature_description", "text": "Just flour, water, salt, and time — nothing artificial"}
+                      ]
+                    },
+                    {
+                      "type": "_template_feature_card",
+                      "items": [
+                        {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/7C9473/FFFFFF.png?text=Heart"},
+                        {"type": "_template_feature_title", "text": "Family Owned"},
+                        {"type": "_template_feature_description", "text": "Three generations of bakers, one shared recipe book"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "horizontal",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#F3E9D2"}],
+              "items": [
+                {
+                  "type": "image",
+                  "image_url": "https://picsum.photos/seed/sunroot-bakery-owner/1000/900",
+                  "width": {"type": "match_parent", "weight": 1},
+                  "height": {"type": "fixed", "value": 520},
+                  "scale": "fill"
+                },
+                {
+                  "type": "container",
+                  "orientation": "vertical",
+                  "width": {"type": "match_parent", "weight": 1},
+                  "height": {"type": "match_parent"},
+                  "paddings": {"left": 48, "right": 48, "top": 0, "bottom": 0},
+                  "content_alignment_vertical": "center",
+                  "items": [
+                    {"type": "text", "text": "Our Story", "font_size": 32, "font_weight": "bold", "text_color": "#4A3A28"},
+                    {"type": "text", "text": "Sunroot Bakery started in a small kitchen with one starter and a lot of patience. Today we still bake the same way — slow fermentation, real butter, and recipes passed down rather than rushed.", "font_size": 15, "text_color": "#6B5A46", "line_height": 24, "margins": {"top": 16}},
+                    {
+                      "type": "text",
+                      "role": "button",
+                      "text": "Meet the Bakers",
+                      "font_size": 15,
+                      "font_weight": "medium",
+                      "text_color": "#7C9473",
+                      "border": {"corner_radius": 10, "stroke": {"color": "#7C9473", "width": 2}},
+                      "paddings": {"top": 14, "bottom": 14, "left": 26, "right": 26},
+                      "width": {"type": "wrap_content"},
+                      "margins": {"top": 24},
+                      "action": {"log_id": "about_meet_bakers", "url": "action://about"}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#FFFFFF"}],
+              "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
+              "content_alignment_horizontal": "center",
+              "items": [
+                {"type": "text", "text": "Fresh Off the Shelf", "font_size": 32, "font_weight": "bold", "text_color": "#4A3A28", "text_alignment_horizontal": "center"},
+                {"type": "text", "text": "A few of today's favorites", "font_size": 16, "text_color": "#7A6A56", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 32}},
+                {
+                  "type": "gallery",
+                  "orientation": "horizontal",
+                  "item_spacing": 20,
+                  "width": {"type": "wrap_content"},
+                  "height": {"type": "wrap_content"},
+                  "items": [
+                    {
+                      "type": "_template_product_card",
+                      "action": {"log_id": "product_sourdough", "url": "action://product_sourdough"},
+                      "items": [
+                        {"type": "_template_product_image", "image_url": "https://placehold.co/520x360/D9BC8C/4A3A28.png?text=Sourdough"},
+                        {"type": "_template_product_title", "text": "Classic Sourdough"},
+                        {"type": "_template_product_description", "text": "Crackly crust, soft open crumb"}
+                      ]
+                    },
+                    {
+                      "type": "_template_product_card",
+                      "action": {"log_id": "product_croissant", "url": "action://product_croissant"},
+                      "items": [
+                        {"type": "_template_product_image", "image_url": "https://placehold.co/520x360/E8D4A9/4A3A28.png?text=Croissant"},
+                        {"type": "_template_product_title", "text": "Butter Croissant"},
+                        {"type": "_template_product_description", "text": "Flaky layers, baked golden every morning"}
+                      ]
+                    },
+                    {
+                      "type": "_template_product_card",
+                      "action": {"log_id": "product_cinnamon_roll", "url": "action://product_cinnamon_roll"},
+                      "items": [
+                        {"type": "_template_product_image", "image_url": "https://placehold.co/520x360/7C9473/FFFFFF.png?text=Cinnamon+Roll"},
+                        {"type": "_template_product_title", "text": "Cinnamon Roll"},
+                        {"type": "_template_product_description", "text": "Warm, gooey, topped with cream glaze"}
+                      ]
+                    },
+                    {
+                      "type": "_template_product_card",
+                      "action": {"log_id": "product_baguette", "url": "action://product_baguette"},
+                      "items": [
+                        {"type": "_template_product_image", "image_url": "https://placehold.co/520x360/4A3A28/E8D4A9.png?text=Baguette"},
+                        {"type": "_template_product_title", "text": "French Baguette"},
+                        {"type": "_template_product_description", "text": "Thin crust, light and airy inside"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "horizontal",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#7C9473"}],
+              "paddings": {"left": 48, "right": 48, "top": 48, "bottom": 48},
+              "items": [
+                {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "content_alignment_horizontal": "center", "items": [
+                  {"type": "text", "text": "15", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+                  {"type": "text", "text": "Years Baking", "font_size": 14, "text_color": "#EAF1E4", "margins": {"top": 8}}
+                ]},
+                {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "content_alignment_horizontal": "center", "items": [
+                  {"type": "text", "text": "40+", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+                  {"type": "text", "text": "Daily Recipes", "font_size": 14, "text_color": "#EAF1E4", "margins": {"top": 8}}
+                ]},
+                {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "content_alignment_horizontal": "center", "items": [
+                  {"type": "text", "text": "5AM", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+                  {"type": "text", "text": "First Batch Out", "font_size": 14, "text_color": "#EAF1E4", "margins": {"top": 8}}
+                ]},
+                {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "content_alignment_horizontal": "center", "items": [
+                  {"type": "text", "text": "0", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+                  {"type": "text", "text": "Artificial Additives", "font_size": 14, "text_color": "#EAF1E4", "margins": {"top": 8}}
+                ]}
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#FBF7EE"}],
+              "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
+              "content_alignment_horizontal": "center",
+              "items": [
+                {"type": "text", "text": "What Neighbors Say", "font_size": 32, "font_weight": "bold", "text_color": "#4A3A28", "text_alignment_horizontal": "center"},
+                {"type": "text", "text": "Real words from regulars", "font_size": 16, "text_color": "#7A6A56", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 40}},
+                {
+                  "type": "gallery",
+                  "orientation": "horizontal",
+                  "item_spacing": 20,
+                  "width": {"type": "wrap_content"},
+                  "height": {"type": "wrap_content"},
+                  "items": [
+                    {
+                      "type": "_template_testimonial_card",
+                      "items": [
+                        {"type": "text", "text": "The sourdough here ruined every other loaf for me. I walk here every Saturday now.", "font_size": 15, "text_color": "#4A3A28", "line_height": 24},
+                        {"type": "container", "orientation": "horizontal", "width": {"type": "match_parent"}, "margins": {"top": 20}, "content_alignment_vertical": "center", "items": [
+                          {"type": "image", "image_url": "https://picsum.photos/seed/sunroot-review-1/120/120", "width": {"type": "fixed", "value": 44}, "height": {"type": "fixed", "value": 44}, "scale": "fill", "border": {"corner_radius": 22}},
+                          {"type": "container", "orientation": "vertical", "margins": {"left": 12}, "items": [
+                            {"type": "text", "text": "Elena Rossi", "font_size": 14, "font_weight": "bold", "text_color": "#4A3A28"},
+                            {"type": "text", "text": "Regular customer", "font_size": 12, "text_color": "#9C8B74", "margins": {"top": 2}}
+                          ]}
+                        ]}
+                      ]
+                    },
+                    {
+                      "type": "_template_testimonial_card",
+                      "items": [
+                        {"type": "text", "text": "Their croissants sell out by 9am for a reason. Get there early, it's worth it.", "font_size": 15, "text_color": "#4A3A28", "line_height": 24},
+                        {"type": "container", "orientation": "horizontal", "width": {"type": "match_parent"}, "margins": {"top": 20}, "content_alignment_vertical": "center", "items": [
+                          {"type": "image", "image_url": "https://picsum.photos/seed/sunroot-review-2/120/120", "width": {"type": "fixed", "value": 44}, "height": {"type": "fixed", "value": 44}, "scale": "fill", "border": {"corner_radius": 22}},
+                          {"type": "container", "orientation": "vertical", "margins": {"left": 12}, "items": [
+                            {"type": "text", "text": "Marcus Webb", "font_size": 14, "font_weight": "bold", "text_color": "#4A3A28"},
+                            {"type": "text", "text": "Local resident", "font_size": 12, "text_color": "#9C8B74", "margins": {"top": 2}}
+                          ]}
+                        ]}
+                      ]
+                    },
+                    {
+                      "type": "_template_testimonial_card",
+                      "items": [
+                        {"type": "text", "text": "You can tell they actually care about the ingredients. Everything tastes like it was made by hand.", "font_size": 15, "text_color": "#4A3A28", "line_height": 24},
+                        {"type": "container", "orientation": "horizontal", "width": {"type": "match_parent"}, "margins": {"top": 20}, "content_alignment_vertical": "center", "items": [
+                          {"type": "image", "image_url": "https://picsum.photos/seed/sunroot-review-3/120/120", "width": {"type": "fixed", "value": 44}, "height": {"type": "fixed", "value": 44}, "scale": "fill", "border": {"corner_radius": 22}},
+                          {"type": "container", "orientation": "vertical", "margins": {"left": 12}, "items": [
+                            {"type": "text", "text": "Priya Anand", "font_size": 14, "font_weight": "bold", "text_color": "#4A3A28"},
+                            {"type": "text", "text": "Weekend regular", "font_size": 12, "text_color": "#9C8B74", "margins": {"top": 2}}
+                          ]}
+                        ]}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "gradient", "colors": ["#D9BC8C", "#7C9473"], "angle": 120}],
+              "paddings": {"left": 48, "right": 48, "top": 56, "bottom": 56},
+              "content_alignment_horizontal": "center",
+              "items": [
+                {"type": "text", "text": "Get Our Weekly Bake List", "font_size": 30, "font_weight": "bold", "text_color": "#FFFFFF", "text_alignment_horizontal": "center"},
+                {"type": "text", "text": "New specials, sold-out warnings, and a few recipes we don't publish anywhere else", "font_size": 15, "text_color": "#FBF7EE", "text_alignment_horizontal": "center", "margins": {"top": 12}},
+                {
+                  "type": "container",
+                  "orientation": "horizontal",
+                  "width": {"type": "wrap_content"},
+                  "margins": {"top": 28},
+                  "content_alignment_vertical": "center",
+                  "items": [
+                    {
+                      "type": "input",
+                      "text_variable": "newsletter_email",
+                      "hint_text": "Enter your email",
+                      "hint_color": "#9C8B74",
+                      "font_size": 15,
+                      "text_color": "#4A3A28",
+                      "background": [{"type": "solid", "color": "#FFFFFF"}],
+                      "border": {"corner_radius": 10},
+                      "paddings": {"top": 14, "bottom": 14, "left": 18, "right": 18},
+                      "width": {"type": "fixed", "value": 280},
+                      "height": {"type": "wrap_content"}
+                    },
+                    {
+                      "type": "text",
+                      "role": "button",
+                      "text": "Subscribe",
+                      "font_size": 15,
+                      "font_weight": "bold",
+                      "text_color": "#4A3A28",
+                      "background": [{"type": "solid", "color": "#FBF7EE"}],
+                      "border": {"corner_radius": 10},
+                      "paddings": {"top": 14, "bottom": 14, "left": 26, "right": 26},
+                      "width": {"type": "wrap_content"},
+                      "margins": {"left": 12},
+                      "action": {"log_id": "newsletter_subscribe", "url": "action://subscribe"}
+                    }
+                  ]
+                },
+                {"type": "text", "text": "No spam. Unsubscribe anytime.", "font_size": 12, "text_color": "#F0E9D8", "text_alignment_horizontal": "center", "margins": {"top": 14}}
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#4A3A28"}],
+              "paddings": {"left": 48, "right": 48, "top": 48, "bottom": 32},
+              "items": [
+                {
+                  "type": "container",
+                  "orientation": "horizontal",
+                  "width": {"type": "match_parent"},
+                  "height": {"type": "wrap_content"},
+                  "items": [
+                    {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "items": [
+                      {"type": "text", "text": "Sunroot Bakery", "font_size": 20, "font_weight": "bold", "text_color": "#FFFFFF"},
+                      {"type": "text", "text": "Fresh bread and pastries, baked with care every morning", "font_size": 13, "text_color": "#C9B89D", "line_height": 20, "margins": {"top": 12}}
+                    ]},
+                    {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "items": [
+                      {"type": "text", "text": "Explore", "font_size": 14, "font_weight": "bold", "text_color": "#FFFFFF", "margins": {"bottom": 16}},
+                      {"type": "text", "text": "Full Menu", "font_size": 13, "text_color": "#C9B89D", "margins": {"bottom": 10}, "action": {"log_id": "footer_menu", "url": "action://menu"}},
+                      {"type": "text", "text": "Our Story", "font_size": 13, "text_color": "#C9B89D", "margins": {"bottom": 10}, "action": {"log_id": "footer_story", "url": "action://about"}},
+                      {"type": "text", "text": "Catering", "font_size": 13, "text_color": "#C9B89D", "action": {"log_id": "footer_catering", "url": "action://catering"}}
+                    ]},
+                    {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "items": [
+                      {"type": "text", "text": "Visit", "font_size": 14, "font_weight": "bold", "text_color": "#FFFFFF", "margins": {"bottom": 16}},
+                      {"type": "text", "text": "42 Millbrook Lane", "font_size": 13, "text_color": "#C9B89D", "margins": {"bottom": 10}},
+                      {"type": "text", "text": "Open 6AM – 4PM Daily", "font_size": 13, "text_color": "#C9B89D", "margins": {"bottom": 10}},
+                      {"type": "text", "text": "Get Directions", "font_size": 13, "text_color": "#C9B89D", "action": {"log_id": "footer_directions", "url": "action://directions"}}
+                    ]},
+                    {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "items": [
+                      {"type": "text", "text": "Contact", "font_size": 14, "font_weight": "bold", "text_color": "#FFFFFF", "margins": {"bottom": 16}},
+                      {"type": "text", "text": "hello@sunrootbakery.com", "font_size": 13, "text_color": "#C9B89D", "margins": {"bottom": 10}},
+                      {"type": "text", "text": "(555) 019-2244", "font_size": 13, "text_color": "#C9B89D", "margins": {"bottom": 10}},
+                      {"type": "text", "text": "Privacy Policy", "font_size": 13, "text_color": "#C9B89D", "action": {"log_id": "footer_privacy", "url": "action://privacy"}}
+                    ]}
+                  ]
+                },
+                {"type": "separator", "delimiter_style": {"color": "#5F4C38"}, "margins": {"top": 32, "bottom": 24}},
+                {"type": "text", "text": "© 2026 Sunroot Bakery. All rights reserved.", "font_size": 12, "text_color": "#A9977E", "text_alignment_horizontal": "center"}
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

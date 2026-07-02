@@ -1,0 +1,683 @@
+{
+  "templates": {
+    "_template_feature_card": {
+      "type": "container",
+      "orientation": "vertical",
+      "width": {"type": "match_parent"},
+      "height": {"type": "wrap_content"},
+      "background": [{"type": "solid", "color": "#22242B"}],
+      "border": {"corner_radius": 16, "stroke": {"color": "#3A3D46", "width": 1}},
+      "paddings": {"left": 24, "right": 24, "top": 28, "bottom": 28}
+    },
+    "_template_feature_icon": {
+      "type": "image",
+      "width": {"type": "fixed", "value": 56},
+      "height": {"type": "fixed", "value": 56},
+      "scale": "fill",
+      "border": {"corner_radius": 14}
+    },
+    "_template_feature_title": {
+      "type": "text",
+      "font_size": 18,
+      "font_weight": "bold",
+      "text_color": "#FFFFFF",
+      "margins": {"top": 18}
+    },
+    "_template_feature_description": {
+      "type": "text",
+      "font_size": 14,
+      "text_color": "#A6A9B4",
+      "line_height": 22,
+      "margins": {"top": 8}
+    },
+    "_template_class_card": {
+      "type": "container",
+      "orientation": "vertical",
+      "width": {"type": "fixed", "value": 260},
+      "height": {"type": "wrap_content"},
+      "background": [{"type": "solid", "color": "#22242B"}],
+      "border": {"corner_radius": 16, "stroke": {"color": "#3A3D46", "width": 1}}
+    },
+    "_template_class_image": {
+      "type": "image",
+      "width": {"type": "match_parent"},
+      "height": {"type": "fixed", "value": 180},
+      "scale": "fill",
+      "border": {"corners_radius": {"top_left": 16, "top_right": 16, "bottom_left": 0, "bottom_right": 0}}
+    },
+    "_template_class_title": {
+      "type": "text",
+      "font_size": 16,
+      "font_weight": "bold",
+      "text_color": "#FFFFFF",
+      "margins": {"top": 14, "left": 16, "right": 16}
+    },
+    "_template_class_description": {
+      "type": "text",
+      "font_size": 13,
+      "text_color": "#A6A9B4",
+      "line_height": 20,
+      "margins": {"top": 6, "left": 16, "right": 16, "bottom": 16}
+    },
+    "_template_testimonial_card": {
+      "type": "container",
+      "orientation": "vertical",
+      "width": {"type": "fixed", "value": 340},
+      "height": {"type": "wrap_content"},
+      "background": [{"type": "solid", "color": "#22242B"}],
+      "border": {"corner_radius": 16, "stroke": {"color": "#3A3D46", "width": 1}},
+      "paddings": {"left": 28, "right": 28, "top": 28, "bottom": 28}
+    },
+    "_template_blog_card": {
+      "type": "container",
+      "orientation": "vertical",
+      "width": {"type": "match_parent"},
+      "height": {"type": "wrap_content"},
+      "background": [{"type": "solid", "color": "#22242B"}],
+      "border": {"corner_radius": 16, "stroke": {"color": "#3A3D46", "width": 1}}
+    },
+    "_template_blog_image": {
+      "type": "image",
+      "width": {"type": "match_parent"},
+      "height": {"type": "fixed", "value": 200},
+      "scale": "fill",
+      "border": {"corners_radius": {"top_left": 16, "top_right": 16, "bottom_left": 0, "bottom_right": 0}}
+    },
+    "_template_blog_title": {
+      "type": "text",
+      "font_size": 17,
+      "font_weight": "bold",
+      "text_color": "#FFFFFF",
+      "line_height": 24,
+      "margins": {"top": 12, "left": 16, "right": 16}
+    },
+    "_template_blog_excerpt": {
+      "type": "text",
+      "font_size": 13,
+      "text_color": "#A6A9B4",
+      "line_height": 20,
+      "margins": {"top": 8, "left": 16, "right": 16},
+      "max_lines": 2
+    }
+  },
+  "card": {
+    "log_id": "ironpulse-gym-homepage",
+    "states": [
+      {
+        "state_id": 0,
+        "div": {
+          "type": "container",
+          "orientation": "vertical",
+          "background": [{"type": "solid", "color": "#1B1D23"}],
+          "width": {"type": "match_parent"},
+          "height": {"type": "wrap_content"},
+          "items": [
+            {
+              "type": "container",
+              "orientation": "horizontal",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#1B1D23"}],
+              "paddings": {"left": 48, "right": 48, "top": 18, "bottom": 18},
+              "content_alignment_vertical": "center",
+              "items": [
+                {
+                  "type": "text",
+                  "text": "IRONPULSE GYM",
+                  "font_size": 22,
+                  "font_weight": "bold",
+                  "text_color": "#FFFFFF",
+                  "letter_spacing": 1.0,
+                  "width": {"type": "wrap_content"}
+                },
+                {
+                  "type": "container",
+                  "orientation": "horizontal",
+                  "width": {"type": "match_parent", "weight": 1},
+                  "height": {"type": "wrap_content"},
+                  "content_alignment_horizontal": "end",
+                  "content_alignment_vertical": "center",
+                  "items": [
+                    {"type": "text", "text": "Home", "font_size": 15, "font_weight": "medium", "text_color": "#FFFFFF", "margins": {"right": 28}},
+                    {"type": "text", "text": "Classes", "font_size": 15, "text_color": "#A6A9B4", "margins": {"right": 28}},
+                    {"type": "text", "text": "Membership", "font_size": 15, "text_color": "#A6A9B4", "margins": {"right": 28}},
+                    {"type": "text", "text": "Contact", "font_size": 15, "text_color": "#A6A9B4", "margins": {"right": 28}},
+                    {
+                      "type": "text",
+                      "role": "button",
+                      "text": "Join Now",
+                      "font_size": 14,
+                      "font_weight": "medium",
+                      "text_color": "#FFFFFF",
+                      "background": [{"type": "solid", "color": "#FF5A36"}],
+                      "border": {"corner_radius": 8},
+                      "paddings": {"top": 10, "bottom": 10, "left": 20, "right": 20},
+                      "width": {"type": "wrap_content"},
+                      "action": {"log_id": "nav_join_now", "url": "action://join"}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "horizontal",
+              "width": {"type": "match_parent"},
+              "height": {"type": "fixed", "value": 700},
+              "background": [{"type": "gradient", "colors": ["#1B1D23", "#22242B"], "angle": 120}],
+              "items": [
+                {
+                  "type": "container",
+                  "orientation": "vertical",
+                  "width": {"type": "match_parent", "weight": 1},
+                  "height": {"type": "match_parent"},
+                  "paddings": {"left": 48, "right": 32, "top": 0, "bottom": 0},
+                  "content_alignment_vertical": "center",
+                  "items": [
+                    {
+                      "type": "text",
+                      "text": "Train Harder. Become Unstoppable.",
+                      "font_size": 42,
+                      "font_weight": "bold",
+                      "text_color": "#FFFFFF",
+                      "line_height": 50
+                    },
+                    {
+                      "type": "text",
+                      "text": "Strength training, group classes, and expert coaching — everything you need to hit goals you haven't even set yet.",
+                      "font_size": 16,
+                      "text_color": "#B7BAC3",
+                      "line_height": 26,
+                      "margins": {"top": 20}
+                    },
+                    {
+                      "type": "container",
+                      "orientation": "horizontal",
+                      "width": {"type": "wrap_content"},
+                      "margins": {"top": 32},
+                      "items": [
+                        {
+                          "type": "text",
+                          "role": "button",
+                          "text": "Start Free Trial",
+                          "font_size": 16,
+                          "font_weight": "bold",
+                          "text_color": "#FFFFFF",
+                          "background": [{"type": "solid", "color": "#FF5A36"}],
+                          "border": {"corner_radius": 12},
+                          "paddings": {"top": 16, "bottom": 16, "left": 30, "right": 30},
+                          "width": {"type": "wrap_content"},
+                          "action": {"log_id": "hero_start_trial", "url": "action://trial"}
+                        },
+                        {
+                          "type": "text",
+                          "role": "button",
+                          "text": "View Classes",
+                          "font_size": 16,
+                          "font_weight": "medium",
+                          "text_color": "#FFFFFF",
+                          "background": [{"type": "solid", "color": "#15FFFFFF"}],
+                          "border": {"corner_radius": 12, "stroke": {"color": "#40FFFFFF", "width": 1}},
+                          "paddings": {"top": 16, "bottom": 16, "left": 30, "right": 30},
+                          "width": {"type": "wrap_content"},
+                          "margins": {"left": 16},
+                          "action": {"log_id": "hero_view_classes", "url": "action://classes"}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "image_url": "https://picsum.photos/seed/ironpulse-gym-lifting/1200/900",
+                  "width": {"type": "match_parent", "weight": 1},
+                  "height": {"type": "match_parent"},
+                  "scale": "fill"
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#1F2128"}],
+              "paddings": {"top": 40, "bottom": 40, "left": 24, "right": 24},
+              "content_alignment_horizontal": "center",
+              "items": [
+                {"type": "text", "text": "AS FEATURED IN", "font_size": 13, "font_weight": "medium", "text_color": "#7C7F89", "text_alignment_horizontal": "center", "letter_spacing": 2},
+                {
+                  "type": "gallery",
+                  "orientation": "horizontal",
+                  "item_spacing": 40,
+                  "width": {"type": "wrap_content"},
+                  "height": {"type": "wrap_content"},
+                  "margins": {"top": 24},
+                  "items": [
+                    {"type": "image", "image_url": "https://placehold.co/120x40/22242B/A6A9B4.png?text=FitDaily", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+                    {"type": "image", "image_url": "https://placehold.co/120x40/22242B/A6A9B4.png?text=MuscleMag", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+                    {"type": "image", "image_url": "https://placehold.co/120x40/22242B/A6A9B4.png?text=UrbanFit", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+                    {"type": "image", "image_url": "https://placehold.co/120x40/22242B/A6A9B4.png?text=PulseNews", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"}
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#1B1D23"}],
+              "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
+              "items": [
+                {"type": "text", "text": "Everything You Need to Progress", "font_size": 32, "font_weight": "bold", "text_color": "#FFFFFF", "text_alignment_horizontal": "center"},
+                {"type": "text", "text": "Equipment, coaching, and community — all under one roof", "font_size": 16, "text_color": "#A6A9B4", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 40}},
+                {
+                  "type": "gallery",
+                  "orientation": "vertical",
+                  "column_count": 4,
+                  "item_spacing": 20,
+                  "height": {"type": "wrap_content"},
+                  "items": [
+                    {
+                      "type": "_template_feature_card",
+                      "items": [
+                        {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/FF5A36/FFFFFF.png?text=Weights"},
+                        {"type": "_template_feature_title", "text": "Full Weight Room"},
+                        {"type": "_template_feature_description", "text": "Free weights, machines, and platforms for every lift"}
+                      ]
+                    },
+                    {
+                      "type": "_template_feature_card",
+                      "items": [
+                        {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/FFC93C/1B1D23.png?text=Coach"},
+                        {"type": "_template_feature_title", "text": "Certified Coaches"},
+                        {"type": "_template_feature_description", "text": "One-on-one guidance to train safely and progress faster"}
+                      ]
+                    },
+                    {
+                      "type": "_template_feature_card",
+                      "items": [
+                        {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/22242B/FF5A36.png?text=Class"},
+                        {"type": "_template_feature_title", "text": "Group Classes"},
+                        {"type": "_template_feature_description", "text": "HIIT, spin, and strength classes running all week"}
+                      ]
+                    },
+                    {
+                      "type": "_template_feature_card",
+                      "items": [
+                        {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/FF5A36/FFFFFF.png?text=247"},
+                        {"type": "_template_feature_title", "text": "24/7 Access"},
+                        {"type": "_template_feature_description", "text": "Train on your own schedule, day or night"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "horizontal",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#1F2128"}],
+              "items": [
+                {
+                  "type": "image",
+                  "image_url": "https://picsum.photos/seed/ironpulse-gym-coach/1000/900",
+                  "width": {"type": "match_parent", "weight": 1},
+                  "height": {"type": "fixed", "value": 520},
+                  "scale": "fill"
+                },
+                {
+                  "type": "container",
+                  "orientation": "vertical",
+                  "width": {"type": "match_parent", "weight": 1},
+                  "height": {"type": "match_parent"},
+                  "paddings": {"left": 48, "right": 48, "top": 0, "bottom": 0},
+                  "content_alignment_vertical": "center",
+                  "items": [
+                    {"type": "text", "text": "Built by Lifters, for Lifters", "font_size": 32, "font_weight": "bold", "text_color": "#FFFFFF"},
+                    {"type": "text", "text": "IronPulse started as a single garage gym in 2015. Today we're a full training facility, but the mission hasn't changed — real coaching, real results, no gimmicks.", "font_size": 15, "text_color": "#B7BAC3", "line_height": 24, "margins": {"top": 16}},
+                    {
+                      "type": "text",
+                      "role": "button",
+                      "text": "Meet the Team",
+                      "font_size": 15,
+                      "font_weight": "medium",
+                      "text_color": "#FF5A36",
+                      "border": {"corner_radius": 10, "stroke": {"color": "#FF5A36", "width": 2}},
+                      "paddings": {"top": 14, "bottom": 14, "left": 26, "right": 26},
+                      "width": {"type": "wrap_content"},
+                      "margins": {"top": 24},
+                      "action": {"log_id": "about_meet_team", "url": "action://about"}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "horizontal",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "gradient", "colors": ["#FF5A36", "#FFC93C"], "angle": 120}],
+              "paddings": {"left": 48, "right": 48, "top": 48, "bottom": 48},
+              "items": [
+                {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "content_alignment_horizontal": "center", "items": [
+                  {"type": "text", "text": "2,400+", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+                  {"type": "text", "text": "Active Members", "font_size": 14, "text_color": "#FFF1E8", "margins": {"top": 8}}
+                ]},
+                {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "content_alignment_horizontal": "center", "items": [
+                  {"type": "text", "text": "35", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+                  {"type": "text", "text": "Weekly Classes", "font_size": 14, "text_color": "#FFF1E8", "margins": {"top": 8}}
+                ]},
+                {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "content_alignment_horizontal": "center", "items": [
+                  {"type": "text", "text": "24/7", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+                  {"type": "text", "text": "Facility Access", "font_size": 14, "text_color": "#FFF1E8", "margins": {"top": 8}}
+                ]},
+                {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "content_alignment_horizontal": "center", "items": [
+                  {"type": "text", "text": "9", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+                  {"type": "text", "text": "Years Open", "font_size": 14, "text_color": "#FFF1E8", "margins": {"top": 8}}
+                ]}
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#1B1D23"}],
+              "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
+              "content_alignment_horizontal": "center",
+              "items": [
+                {"type": "text", "text": "Find Your Class", "font_size": 32, "font_weight": "bold", "text_color": "#FFFFFF", "text_alignment_horizontal": "center"},
+                {"type": "text", "text": "Something for every goal and every schedule", "font_size": 16, "text_color": "#A6A9B4", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 32}},
+                {
+                  "type": "gallery",
+                  "orientation": "horizontal",
+                  "item_spacing": 20,
+                  "width": {"type": "wrap_content"},
+                  "height": {"type": "wrap_content"},
+                  "items": [
+                    {
+                      "type": "_template_class_card",
+                      "action": {"log_id": "class_hiit", "url": "action://class_hiit"},
+                      "items": [
+                        {"type": "_template_class_image", "image_url": "https://placehold.co/520x360/FF5A36/FFFFFF.png?text=HIIT"},
+                        {"type": "_template_class_title", "text": "HIIT Circuit"},
+                        {"type": "_template_class_description", "text": "45 minutes, full body, max burn"}
+                      ]
+                    },
+                    {
+                      "type": "_template_class_card",
+                      "action": {"log_id": "class_strength", "url": "action://class_strength"},
+                      "items": [
+                        {"type": "_template_class_image", "image_url": "https://placehold.co/520x360/22242B/FFC93C.png?text=Strength"},
+                        {"type": "_template_class_title", "text": "Strength Foundations"},
+                        {"type": "_template_class_description", "text": "Squat, bench, deadlift — coached properly"}
+                      ]
+                    },
+                    {
+                      "type": "_template_class_card",
+                      "action": {"log_id": "class_spin", "url": "action://class_spin"},
+                      "items": [
+                        {"type": "_template_class_image", "image_url": "https://placehold.co/520x360/FFC93C/1B1D23.png?text=Spin"},
+                        {"type": "_template_class_title", "text": "Power Spin"},
+                        {"type": "_template_class_description", "text": "Music-driven cardio that flies by"}
+                      ]
+                    },
+                    {
+                      "type": "_template_class_card",
+                      "action": {"log_id": "class_mobility", "url": "action://class_mobility"},
+                      "items": [
+                        {"type": "_template_class_image", "image_url": "https://placehold.co/520x360/1F2128/FF5A36.png?text=Mobility"},
+                        {"type": "_template_class_title", "text": "Mobility & Recovery"},
+                        {"type": "_template_class_description", "text": "Stretch, breathe, and move better tomorrow"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#1F2128"}],
+              "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
+              "content_alignment_horizontal": "center",
+              "items": [
+                {"type": "text", "text": "Real Results, Real Members", "font_size": 32, "font_weight": "bold", "text_color": "#FFFFFF", "text_alignment_horizontal": "center"},
+                {"type": "text", "text": "Hear it from people who trained here", "font_size": 16, "text_color": "#A6A9B4", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 40}},
+                {
+                  "type": "gallery",
+                  "orientation": "horizontal",
+                  "item_spacing": 20,
+                  "width": {"type": "wrap_content"},
+                  "height": {"type": "wrap_content"},
+                  "items": [
+                    {
+                      "type": "_template_testimonial_card",
+                      "items": [
+                        {"type": "text", "text": "Lost 20 pounds and finally learned how to lift with proper form. The coaches actually watch and correct you.", "font_size": 15, "text_color": "#E7E8EC", "line_height": 24},
+                        {"type": "container", "orientation": "horizontal", "width": {"type": "match_parent"}, "margins": {"top": 20}, "content_alignment_vertical": "center", "items": [
+                          {"type": "image", "image_url": "https://picsum.photos/seed/ironpulse-review-1/120/120", "width": {"type": "fixed", "value": 44}, "height": {"type": "fixed", "value": 44}, "scale": "fill", "border": {"corner_radius": 22}},
+                          {"type": "container", "orientation": "vertical", "margins": {"left": 12}, "items": [
+                            {"type": "text", "text": "Jordan Blake", "font_size": 14, "font_weight": "bold", "text_color": "#FFFFFF"},
+                            {"type": "text", "text": "Member since 2023", "font_size": 12, "text_color": "#7C7F89", "margins": {"top": 2}}
+                          ]}
+                        ]}
+                      ]
+                    },
+                    {
+                      "type": "_template_testimonial_card",
+                      "items": [
+                        {"type": "text", "text": "The 24/7 access is huge for my schedule. I can train at 5am before work with zero waiting for equipment.", "font_size": 15, "text_color": "#E7E8EC", "line_height": 24},
+                        {"type": "container", "orientation": "horizontal", "width": {"type": "match_parent"}, "margins": {"top": 20}, "content_alignment_vertical": "center", "items": [
+                          {"type": "image", "image_url": "https://picsum.photos/seed/ironpulse-review-2/120/120", "width": {"type": "fixed", "value": 44}, "height": {"type": "fixed", "value": 44}, "scale": "fill", "border": {"corner_radius": 22}},
+                          {"type": "container", "orientation": "vertical", "margins": {"left": 12}, "items": [
+                            {"type": "text", "text": "Sofia Marin", "font_size": 14, "font_weight": "bold", "text_color": "#FFFFFF"},
+                            {"type": "text", "text": "Member since 2022", "font_size": 12, "text_color": "#7C7F89", "margins": {"top": 2}}
+                          ]}
+                        ]}
+                      ]
+                    },
+                    {
+                      "type": "_template_testimonial_card",
+                      "items": [
+                        {"type": "text", "text": "The group classes keep me consistent. It's the first gym I've stuck with for longer than three months.", "font_size": 15, "text_color": "#E7E8EC", "line_height": 24},
+                        {"type": "container", "orientation": "horizontal", "width": {"type": "match_parent"}, "margins": {"top": 20}, "content_alignment_vertical": "center", "items": [
+                          {"type": "image", "image_url": "https://picsum.photos/seed/ironpulse-review-3/120/120", "width": {"type": "fixed", "value": 44}, "height": {"type": "fixed", "value": 44}, "scale": "fill", "border": {"corner_radius": 22}},
+                          {"type": "container", "orientation": "vertical", "margins": {"left": 12}, "items": [
+                            {"type": "text", "text": "Deshawn Carter", "font_size": 14, "font_weight": "bold", "text_color": "#FFFFFF"},
+                            {"type": "text", "text": "Member since 2024", "font_size": 12, "text_color": "#7C7F89", "margins": {"top": 2}}
+                          ]}
+                        ]}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "gradient", "colors": ["#1B1D23", "#FF5A36"], "angle": 120}],
+              "paddings": {"left": 48, "right": 48, "top": 64, "bottom": 64},
+              "content_alignment_horizontal": "center",
+              "items": [
+                {"type": "text", "text": "Your First Session Is On Us", "font_size": 34, "font_weight": "bold", "text_color": "#FFFFFF", "text_alignment_horizontal": "center"},
+                {"type": "text", "text": "No contract, no pressure — just come see what training here feels like", "font_size": 16, "text_color": "#F2E4DC", "text_alignment_horizontal": "center", "margins": {"top": 14}},
+                {
+                  "type": "container",
+                  "orientation": "horizontal",
+                  "width": {"type": "wrap_content"},
+                  "margins": {"top": 30},
+                  "items": [
+                    {"type": "text", "role": "button", "text": "Claim Free Session", "font_size": 16, "font_weight": "bold", "text_color": "#1B1D23", "background": [{"type": "solid", "color": "#FFFFFF"}], "border": {"corner_radius": 12}, "paddings": {"top": 16, "bottom": 16, "left": 30, "right": 30}, "width": {"type": "wrap_content"}, "action": {"log_id": "cta_free_session", "url": "action://free_session"}},
+                    {"type": "text", "role": "button", "text": "See Membership Plans", "font_size": 16, "font_weight": "medium", "text_color": "#FFFFFF", "background": [{"type": "solid", "color": "#20FFFFFF"}], "border": {"corner_radius": 12, "stroke": {"color": "#60FFFFFF", "width": 1}}, "paddings": {"top": 16, "bottom": 16, "left": 30, "right": 30}, "width": {"type": "wrap_content"}, "margins": {"left": 16}, "action": {"log_id": "cta_membership", "url": "action://membership"}}
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#1F2128"}],
+              "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
+              "items": [
+                {
+                  "type": "container",
+                  "orientation": "horizontal",
+                  "width": {"type": "match_parent"},
+                  "items": [
+                    {"type": "text", "text": "Training Tips & News", "font_size": 32, "font_weight": "bold", "text_color": "#FFFFFF", "width": {"type": "match_parent", "weight": 1}},
+                    {"type": "text", "text": "View All →", "font_size": 14, "font_weight": "medium", "text_color": "#FF5A36", "width": {"type": "wrap_content"}, "action": {"log_id": "blog_view_all", "url": "action://blog"}}
+                  ]
+                },
+                {
+                  "type": "gallery",
+                  "orientation": "vertical",
+                  "column_count": 3,
+                  "item_spacing": 20,
+                  "height": {"type": "wrap_content"},
+                  "margins": {"top": 32},
+                  "items": [
+                    {
+                      "type": "_template_blog_card",
+                      "action": {"log_id": "blog_post_1", "url": "action://blog_1"},
+                      "items": [
+                        {"type": "_template_blog_image", "image_url": "https://placehold.co/600x360/FF5A36/FFFFFF.png?text=Recovery"},
+                        {"type": "_template_blog_title", "text": "Why Rest Days Matter More Than You Think"},
+                        {"type": "_template_blog_excerpt", "text": "The science behind muscle recovery and why skipping rest slows progress."},
+                        {"type": "text", "text": "4 min read", "font_size": 12, "text_color": "#7C7F89", "margins": {"top": 12, "left": 16, "bottom": 16}}
+                      ]
+                    },
+                    {
+                      "type": "_template_blog_card",
+                      "action": {"log_id": "blog_post_2", "url": "action://blog_2"},
+                      "items": [
+                        {"type": "_template_blog_image", "image_url": "https://placehold.co/600x360/FFC93C/1B1D23.png?text=Nutrition"},
+                        {"type": "_template_blog_title", "text": "Simple Meal Prep for Busy Lifters"},
+                        {"type": "_template_blog_excerpt", "text": "Five easy meals that support muscle growth without eating the same thing daily."},
+                        {"type": "text", "text": "6 min read", "font_size": 12, "text_color": "#7C7F89", "margins": {"top": 12, "left": 16, "bottom": 16}}
+                      ]
+                    },
+                    {
+                      "type": "_template_blog_card",
+                      "action": {"log_id": "blog_post_3", "url": "action://blog_3"},
+                      "items": [
+                        {"type": "_template_blog_image", "image_url": "https://placehold.co/600x360/22242B/FF5A36.png?text=Form"},
+                        {"type": "_template_blog_title", "text": "Fixing the 3 Most Common Squat Mistakes"},
+                        {"type": "_template_blog_excerpt", "text": "A coach breaks down the form errors that slow beginners down most."},
+                        {"type": "text", "text": "5 min read", "font_size": 12, "text_color": "#7C7F89", "margins": {"top": 12, "left": 16, "bottom": 16}}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#1B1D23"}],
+              "paddings": {"left": 48, "right": 48, "top": 56, "bottom": 56},
+              "content_alignment_horizontal": "center",
+              "items": [
+                {"type": "text", "text": "Get Weekly Training Tips", "font_size": 30, "font_weight": "bold", "text_color": "#FFFFFF", "text_alignment_horizontal": "center"},
+                {"type": "text", "text": "Workout ideas, nutrition advice, and early access to new classes", "font_size": 15, "text_color": "#A6A9B4", "text_alignment_horizontal": "center", "margins": {"top": 12}},
+                {
+                  "type": "container",
+                  "orientation": "horizontal",
+                  "width": {"type": "wrap_content"},
+                  "margins": {"top": 28},
+                  "content_alignment_vertical": "center",
+                  "items": [
+                    {
+                      "type": "input",
+                      "text_variable": "newsletter_email",
+                      "hint_text": "Enter your email",
+                      "hint_color": "#7C7F89",
+                      "font_size": 15,
+                      "text_color": "#FFFFFF",
+                      "background": [{"type": "solid", "color": "#22242B"}],
+                      "border": {"corner_radius": 10, "stroke": {"color": "#3A3D46", "width": 1}},
+                      "paddings": {"top": 14, "bottom": 14, "left": 18, "right": 18},
+                      "width": {"type": "fixed", "value": 280},
+                      "height": {"type": "wrap_content"}
+                    },
+                    {
+                      "type": "text",
+                      "role": "button",
+                      "text": "Subscribe",
+                      "font_size": 15,
+                      "font_weight": "bold",
+                      "text_color": "#FFFFFF",
+                      "background": [{"type": "solid", "color": "#FF5A36"}],
+                      "border": {"corner_radius": 10},
+                      "paddings": {"top": 14, "bottom": 14, "left": 26, "right": 26},
+                      "width": {"type": "wrap_content"},
+                      "margins": {"left": 12},
+                      "action": {"log_id": "newsletter_subscribe", "url": "action://subscribe"}
+                    }
+                  ]
+                },
+                {"type": "text", "text": "No spam. Unsubscribe anytime.", "font_size": 12, "text_color": "#7C7F89", "text_alignment_horizontal": "center", "margins": {"top": 14}}
+              ]
+            },
+            {
+              "type": "container",
+              "orientation": "vertical",
+              "width": {"type": "match_parent"},
+              "height": {"type": "wrap_content"},
+              "background": [{"type": "solid", "color": "#14151A"}],
+              "paddings": {"left": 48, "right": 48, "top": 48, "bottom": 32},
+              "items": [
+                {
+                  "type": "container",
+                  "orientation": "horizontal",
+                  "width": {"type": "match_parent"},
+                  "height": {"type": "wrap_content"},
+                  "items": [
+                    {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "items": [
+                      {"type": "text", "text": "IRONPULSE GYM", "font_size": 20, "font_weight": "bold", "text_color": "#FFFFFF"},
+                      {"type": "text", "text": "Real coaching, real results, no gimmicks", "font_size": 13, "text_color": "#7C7F89", "line_height": 20, "margins": {"top": 12}}
+                    ]},
+                    {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "items": [
+                      {"type": "text", "text": "Explore", "font_size": 14, "font_weight": "bold", "text_color": "#FFFFFF", "margins": {"bottom": 16}},
+                      {"type": "text", "text": "Classes", "font_size": 13, "text_color": "#7C7F89", "margins": {"bottom": 10}, "action": {"log_id": "footer_classes", "url": "action://classes"}},
+                      {"type": "text", "text": "Membership", "font_size": 13, "text_color": "#7C7F89", "margins": {"bottom": 10}, "action": {"log_id": "footer_membership", "url": "action://membership"}},
+                      {"type": "text", "text": "Our Story", "font_size": 13, "text_color": "#7C7F89", "action": {"log_id": "footer_story", "url": "action://about"}}
+                    ]},
+                    {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "items": [
+                      {"type": "text", "text": "Visit", "font_size": 14, "font_weight": "bold", "text_color": "#FFFFFF", "margins": {"bottom": 16}},
+                      {"type": "text", "text": "88 Foundry Street", "font_size": 13, "text_color": "#7C7F89", "margins": {"bottom": 10}},
+                      {"type": "text", "text": "Open 24/7 for Members", "font_size": 13, "text_color": "#7C7F89", "margins": {"bottom": 10}},
+                      {"type": "text", "text": "Get Directions", "font_size": 13, "text_color": "#7C7F89", "action": {"log_id": "footer_directions", "url": "action://directions"}}
+                    ]},
+                    {"type": "container", "orientation": "vertical", "width": {"type": "match_parent", "weight": 1}, "items": [
+                      {"type": "text", "text": "Contact", "font_size": 14, "font_weight": "bold", "text_color": "#FFFFFF", "margins": {"bottom": 16}},
+                      {"type": "text", "text": "hello@ironpulsegym.com", "font_size": 13, "text_color": "#7C7F89", "margins": {"bottom": 10}},
+                      {"type": "text", "text": "(555) 042-7781", "font_size": 13, "text_color": "#7C7F89", "margins": {"bottom": 10}},
+                      {"type": "text", "text": "Privacy Policy", "font_size": 13, "text_color": "#7C7F89", "action": {"log_id": "footer_privacy", "url": "action://privacy"}}
+                    ]}
+                  ]
+                },
+                {"type": "separator", "delimiter_style": {"color": "#2A2C33"}, "margins": {"top": 32, "bottom": 24}},
+                {"type": "text", "text": "© 2026 IronPulse Gym. All rights reserved.", "font_size": 12, "text_color": "#5D5F67", "text_alignment_horizontal": "center"}
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
