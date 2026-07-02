@@ -284,6 +284,10 @@ A wrong order fails SILENTLY (no JSON error) — e.g. `#000000CC` renders fully 
 {"type": "match_parent", "weight": 1} // Proportional (for split layouts)
 ```
 
+Sections use `match_parent` width with symmetric padding (see SECTION LAYOUT) so
+content fills the page evenly. Avoid `fixed`/`max_size`-capped layout columns —
+they render off-center or overflow depending on screen width.
+
 ### Background Types
 ```json
 // Solid color
@@ -545,7 +549,7 @@ RULES:
   "type": "container",
   "orientation": "horizontal",
   "width": {"type": "match_parent"},
-"height": {"type": "fixed", "value": 720},
+  "height": {"type": "fixed", "value": 720},
   "background": [{"type": "solid", "color": "#F8F9FA"}],
   "items": [
     {
@@ -589,42 +593,50 @@ RULES:
   "orientation": "vertical",
   "width": {"type": "match_parent"},
   "height": {"type": "wrap_content"},
-  "paddings": {"left": 24, "right": 24, "top": 64, "bottom": 64},
   "background": [{"type": "solid", "color": "#FFFFFF"}],
+  "content_alignment_horizontal": "center",
   "items": [
-    {"type": "text", "text": "Why Choose Us", "font_size": 32, "font_weight": "bold", "text_color": "#1A1A1A", "text_alignment_horizontal": "center"},
-    {"type": "text", "text": "Everything you need to succeed in one powerful platform", "font_size": 16, "text_color": "#666666", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 40}},
     {
-      "type": "gallery",
+      "type": "container",
       "orientation": "vertical",
-      "column_count": 3,
-      "item_spacing": 16,
+      "width": {"type": "match_parent"},
       "height": {"type": "wrap_content"},
-      "margins": {"left": 8, "right": 8},
-      "paddings": {"left": 8, "right": 8},
+      "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
       "items": [
+        {"type": "text", "text": "Why Choose Us", "font_size": 32, "font_weight": "bold", "text_color": "#1A1A1A", "text_alignment_horizontal": "center"},
+        {"type": "text", "text": "Everything you need to succeed in one powerful platform", "font_size": 16, "text_color": "#666666", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 40}},
         {
-          "type": "_template_feature_card",
+          "type": "gallery",
+          "orientation": "vertical",
+          "column_count": 3,
+          "item_spacing": 16,
+          "width": {"type": "match_parent"},
+          "height": {"type": "wrap_content"},
           "items": [
-            {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/4F46E5/FFFFFF.png?text=Fast"},
-            {"type": "_template_feature_title", "text": "Lightning Fast"},
-            {"type": "_template_feature_description", "text": "Optimized performance that loads in milliseconds"}
-          ]
-        },
-        {
-          "type": "_template_feature_card",
-          "items": [
-            {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/2ECC71/FFFFFF.png?text=Secure"},
-            {"type": "_template_feature_title", "text": "Enterprise Security"},
-            {"type": "_template_feature_description", "text": "Bank-grade encryption and compliance standards"}
-          ]
-        },
-        {
-          "type": "_template_feature_card",
-          "items": [
-            {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/8B5CF6/FFFFFF.png?text=Stats"},
-            {"type": "_template_feature_title", "text": "Smart Analytics"},
-            {"type": "_template_feature_description", "text": "Real-time insights and actionable intelligence"}
+            {
+              "type": "_template_feature_card",
+              "items": [
+                {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/4F46E5/FFFFFF.png?text=Fast"},
+                {"type": "_template_feature_title", "text": "Lightning Fast"},
+                {"type": "_template_feature_description", "text": "Optimized performance that loads in milliseconds"}
+              ]
+            },
+            {
+              "type": "_template_feature_card",
+              "items": [
+                {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/2ECC71/FFFFFF.png?text=Secure"},
+                {"type": "_template_feature_title", "text": "Enterprise Security"},
+                {"type": "_template_feature_description", "text": "Bank-grade encryption and compliance standards"}
+              ]
+            },
+            {
+              "type": "_template_feature_card",
+              "items": [
+                {"type": "_template_feature_icon", "image_url": "https://placehold.co/120x120/8B5CF6/FFFFFF.png?text=Stats"},
+                {"type": "_template_feature_title", "text": "Smart Analytics"},
+                {"type": "_template_feature_description", "text": "Real-time insights and actionable intelligence"}
+              ]
+            }
           ]
         }
       ]
@@ -634,53 +646,64 @@ RULES:
 ```
 
 ### STATISTICS / COUNTER SECTION
+Full-bleed gradient section, full-width with symmetric padding (per SECTION
+LAYOUT). The stat row is a horizontal container of weighted cells.
 ```json
 {
   "type": "container",
-  "orientation": "horizontal",
+  "orientation": "vertical",
   "width": {"type": "match_parent"},
   "height": {"type": "wrap_content"},
   "background": [{"type": "gradient", "colors": ["#667EEA", "#764BA2"], "angle": 135}],
-  "paddings": {"left": 48, "right": 48, "top": 48, "bottom": 48},
+  "content_alignment_horizontal": "center",
   "items": [
     {
       "type": "container",
-      "orientation": "vertical",
-      "width": {"type": "match_parent", "weight": 1},
-      "content_alignment_horizontal": "center",
+      "orientation": "horizontal",
+      "width": {"type": "match_parent"},
+      "height": {"type": "wrap_content"},
+      "paddings": {"left": 48, "right": 48, "top": 56, "bottom": 56},
       "items": [
-        {"type": "text", "text": "10K+", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
-        {"type": "text", "text": "Happy Clients", "font_size": 14, "text_color": "#E0E0FF", "margins": {"top": 8}}
-      ]
-    },
-    {
-      "type": "container",
-      "orientation": "vertical",
-      "width": {"type": "match_parent", "weight": 1},
-      "content_alignment_horizontal": "center",
-      "items": [
-        {"type": "text", "text": "50M+", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
-        {"type": "text", "text": "Pages Served", "font_size": 14, "text_color": "#E0E0FF", "margins": {"top": 8}}
-      ]
-    },
-    {
-      "type": "container",
-      "orientation": "vertical",
-      "width": {"type": "match_parent", "weight": 1},
-      "content_alignment_horizontal": "center",
-      "items": [
-        {"type": "text", "text": "99.9%", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
-        {"type": "text", "text": "Uptime", "font_size": 14, "text_color": "#E0E0FF", "margins": {"top": 8}}
-      ]
-    },
-    {
-      "type": "container",
-      "orientation": "vertical",
-      "width": {"type": "match_parent", "weight": 1},
-      "content_alignment_horizontal": "center",
-      "items": [
-        {"type": "text", "text": "24/7", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
-        {"type": "text", "text": "Support", "font_size": 14, "text_color": "#E0E0FF", "margins": {"top": 8}}
+        {
+          "type": "container",
+          "orientation": "vertical",
+          "width": {"type": "match_parent", "weight": 1},
+          "content_alignment_horizontal": "center",
+          "items": [
+            {"type": "text", "text": "10K+", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+            {"type": "text", "text": "Happy Clients", "font_size": 14, "text_color": "#E0E0FF", "margins": {"top": 8}}
+          ]
+        },
+        {
+          "type": "container",
+          "orientation": "vertical",
+          "width": {"type": "match_parent", "weight": 1},
+          "content_alignment_horizontal": "center",
+          "items": [
+            {"type": "text", "text": "50M+", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+            {"type": "text", "text": "Pages Served", "font_size": 14, "text_color": "#E0E0FF", "margins": {"top": 8}}
+          ]
+        },
+        {
+          "type": "container",
+          "orientation": "vertical",
+          "width": {"type": "match_parent", "weight": 1},
+          "content_alignment_horizontal": "center",
+          "items": [
+            {"type": "text", "text": "99.9%", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+            {"type": "text", "text": "Uptime", "font_size": 14, "text_color": "#E0E0FF", "margins": {"top": 8}}
+          ]
+        },
+        {
+          "type": "container",
+          "orientation": "vertical",
+          "width": {"type": "match_parent", "weight": 1},
+          "content_alignment_horizontal": "center",
+          "items": [
+            {"type": "text", "text": "24/7", "font_size": 40, "font_weight": "bold", "text_color": "#FFFFFF"},
+            {"type": "text", "text": "Support", "font_size": 14, "text_color": "#E0E0FF", "margins": {"top": 8}}
+          ]
+        }
       ]
     }
   ]
@@ -694,39 +717,46 @@ RULES:
   "orientation": "vertical",
   "width": {"type": "match_parent"},
   "height": {"type": "wrap_content"},
-   "paddings": {"left": 24, "right": 24, "top": 64, "bottom": 64},
   "background": [{"type": "solid", "color": "#F8F9FA"}],
   "content_alignment_horizontal": "center",
   "items": [
-    {"type": "text", "text": "What Our Clients Say", "font_size": 32, "font_weight": "bold", "text_color": "#1A1A1A", "text_alignment_horizontal": "center"},
-    {"type": "text", "text": "Trusted by thousands of businesses worldwide", "font_size": 16, "text_color": "#666666", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 40}},
     {
-      "type": "gallery",
-      "orientation": "horizontal",
-      "item_spacing": 16,
-      "width": {"type": "wrap_content"},
+      "type": "container",
+      "orientation": "vertical",
+      "width": {"type": "match_parent"},
       "height": {"type": "wrap_content"},
-      "paddings": {"left": 8, "right": 8},
+      "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
       "items": [
+        {"type": "text", "text": "What Our Clients Say", "font_size": 32, "font_weight": "bold", "text_color": "#1A1A1A", "text_alignment_horizontal": "center"},
+        {"type": "text", "text": "Trusted by thousands of businesses worldwide", "font_size": 16, "text_color": "#666666", "text_alignment_horizontal": "center", "margins": {"top": 12, "bottom": 40}},
         {
-          "type": "_template_testimonial_card",
+          "type": "gallery",
+          "orientation": "horizontal",
+          "item_spacing": 16,
+          "width": {"type": "match_parent"},
+          "height": {"type": "wrap_content"},
           "items": [
-            {"type": "text", "text": "\"This platform transformed our entire workflow. We've seen 3x improvement in productivity since switching.\"", "font_size": 15, "text_color": "#333333", "line_height": 24, "font_weight": "regular"},
             {
-              "type": "container",
-              "orientation": "horizontal",
-              "width": {"type": "match_parent"},
-              "margins": {"top": 20},
-              "content_alignment_vertical": "center",
+              "type": "_template_testimonial_card",
               "items": [
-                {"type": "image", "image_url": "https://picsum.photos/seed/person-1/120/120", "width": {"type": "fixed", "value": 44}, "height": {"type": "fixed", "value": 44}, "scale": "fill", "border": {"corner_radius": 22}},
+                {"type": "text", "text": "\"This platform transformed our entire workflow. We've seen 3x improvement in productivity since switching.\"", "font_size": 15, "text_color": "#333333", "line_height": 24, "font_weight": "regular"},
                 {
                   "type": "container",
-                  "orientation": "vertical",
-                  "margins": {"left": 12},
+                  "orientation": "horizontal",
+                  "width": {"type": "match_parent"},
+                  "margins": {"top": 20},
+                  "content_alignment_vertical": "center",
                   "items": [
-                    {"type": "text", "text": "Sarah Johnson", "font_size": 14, "font_weight": "bold", "text_color": "#1A1A1A"},
-                    {"type": "text", "text": "CEO, TechCorp", "font_size": 12, "text_color": "#888888", "margins": {"top": 2}}
+                    {"type": "image", "image_url": "https://picsum.photos/seed/person-1/120/120", "width": {"type": "fixed", "value": 44}, "height": {"type": "fixed", "value": 44}, "scale": "fill", "border": {"corner_radius": 22}},
+                    {
+                      "type": "container",
+                      "orientation": "vertical",
+                      "margins": {"left": 12},
+                      "items": [
+                        {"type": "text", "text": "Sarah Johnson", "font_size": 14, "font_weight": "bold", "text_color": "#1A1A1A"},
+                        {"type": "text", "text": "CEO, TechCorp", "font_size": 12, "text_color": "#888888", "margins": {"top": 2}}
+                      ]
+                    }
                   ]
                 }
               ]
@@ -740,6 +770,8 @@ RULES:
 ```
 
 ### CTA BANNER (Full-width between sections)
+Full-bleed gradient section, full-width with symmetric padding. Padding is SPACIOUS (96)
+so this is the strongest block on the page (per SECTION SPACING / VISUAL HIERARCHY).
 ```json
 {
   "type": "container",
@@ -747,20 +779,29 @@ RULES:
   "width": {"type": "match_parent"},
   "height": {"type": "wrap_content"},
   "background": [{"type": "gradient", "colors": ["#4F46E5", "#7C3AED"], "angle": 135}],
-  "paddings": {"left": 48, "right": 48, "top": 64, "bottom": 64},
   "content_alignment_horizontal": "center",
   "items": [
-    {"type": "text", "text": "Ready to Get Started?", "font_size": 36, "font_weight": "bold", "text_color": "#FFFFFF", "text_alignment_horizontal": "center"},
-    {"type": "text", "text": "Join thousands of businesses already growing with us", "font_size": 16, "text_color": "#E0E0FF", "text_alignment_horizontal": "center", "margins": {"top": 16}},
     {
       "type": "container",
-      "orientation": "horizontal",
-      "width": {"type": "wrap_content"},
-      "margins": {"top": 32},
+      "orientation": "vertical",
+      "width": {"type": "match_parent"},
+      "height": {"type": "wrap_content"},
+      "paddings": {"left": 48, "right": 48, "top": 96, "bottom": 96},
       "content_alignment_horizontal": "center",
       "items": [
-        {"type": "text", "role": "button", "text": "Start Free Trial", "font_size": 16, "font_weight": "bold", "text_color": "#4F46E5", "background": [{"type": "solid", "color": "#FFFFFF"}], "border": {"corner_radius": 12}, "paddings": {"top": 16, "bottom": 16, "left": 32, "right": 32}, "width": {"type": "wrap_content"}, "action": {"log_id": "cta_banner_trial", "url": "action://trial"}},
-        {"type": "text", "role": "button", "text": "Contact Sales", "font_size": 16, "font_weight": "medium", "text_color": "#FFFFFF", "background": [{"type": "solid", "color": "#20FFFFFF"}], "border": {"corner_radius": 12, "stroke": {"color": "#60FFFFFF", "width": 1}}, "paddings": {"top": 16, "bottom": 16, "left": 32, "right": 32}, "width": {"type": "wrap_content"}, "margins": {"left": 16}, "action": {"log_id": "cta_banner_contact", "url": "action://contact"}}
+        {"type": "text", "text": "Ready to Get Started?", "font_size": 36, "font_weight": "bold", "text_color": "#FFFFFF", "text_alignment_horizontal": "center"},
+        {"type": "text", "text": "Join thousands of businesses already growing with us", "font_size": 16, "text_color": "#E0E0FF", "text_alignment_horizontal": "center", "margins": {"top": 16}},
+        {
+          "type": "container",
+          "orientation": "horizontal",
+          "width": {"type": "wrap_content"},
+          "margins": {"top": 32},
+          "content_alignment_horizontal": "center",
+          "items": [
+            {"type": "text", "role": "button", "text": "Start Free Trial", "font_size": 16, "font_weight": "bold", "text_color": "#4F46E5", "background": [{"type": "solid", "color": "#FFFFFF"}], "border": {"corner_radius": 12}, "paddings": {"top": 16, "bottom": 16, "left": 32, "right": 32}, "width": {"type": "wrap_content"}, "action": {"log_id": "cta_banner_trial", "url": "action://trial"}},
+            {"type": "text", "role": "button", "text": "Contact Sales", "font_size": 16, "font_weight": "medium", "text_color": "#FFFFFF", "background": [{"type": "solid", "color": "#20FFFFFF"}], "border": {"corner_radius": 12, "stroke": {"color": "#60FFFFFF", "width": 1}}, "paddings": {"top": 16, "bottom": 16, "left": 32, "right": 32}, "width": {"type": "wrap_content"}, "margins": {"left": 16}, "action": {"log_id": "cta_banner_contact", "url": "action://contact"}}
+          ]
+        }
       ]
     }
   ]
@@ -768,6 +809,7 @@ RULES:
 ```
 
 ### FOOTER
+Full-bleed dark section, full-width with symmetric padding (per SECTION LAYOUT).
 ```json
 {
   "type": "container",
@@ -775,8 +817,15 @@ RULES:
   "width": {"type": "match_parent"},
   "height": {"type": "wrap_content"},
   "background": [{"type": "solid", "color": "#111111"}],
-  "paddings": {"left": 48, "right": 48, "top": 48, "bottom": 32},
+  "content_alignment_horizontal": "center",
   "items": [
+    {
+      "type": "container",
+      "orientation": "vertical",
+      "width": {"type": "match_parent"},
+      "height": {"type": "wrap_content"},
+      "paddings": {"left": 48, "right": 48, "top": 48, "bottom": 32},
+      "items": [
     {
       "type": "container",
       "orientation": "horizontal",
@@ -827,21 +876,26 @@ RULES:
         }
       ]
     },
-    {"type": "separator", "delimiter_style": {"color": "#333333"}, "margins": {"top": 32, "bottom": 24}},
-    {"type": "text", "text": "© 2025 BrandName. All rights reserved.", "font_size": 12, "text_color": "#666666", "text_alignment_horizontal": "center"}
+        {"type": "separator", "delimiter_style": {"color": "#333333"}, "margins": {"top": 32, "bottom": 24}},
+        {"type": "text", "text": "© 2025 BrandName. All rights reserved.", "font_size": 12, "text_color": "#666666", "text_alignment_horizontal": "center"}
+      ]
+    }
   ]
 }
 ```
 
 ### CONTENT CAROUSEL (Horizontal)
+Place this gallery INSIDE a full-width section (see SECTION LAYOUT)
+with `width: match_parent`. Never shrink it with `wrap_content` + a centered
+parent — that strands it in empty space.
 ```json
 {
   "type": "gallery",
   "orientation": "horizontal",
   "item_spacing": 16,
+  "width": {"type": "match_parent"},
   "height": {"type": "wrap_content"},
-  "margins": {"top": 16, "left": 16, "right": 16, "bottom": 32},
-  "paddings": {"left": 8, "right": 8},
+  "margins": {"top": 16, "bottom": 32},
   "items": [
     {
       "type": "_template_content_card",
@@ -858,31 +912,40 @@ RULES:
 ```
 
 ### BLOG/NEWS PREVIEW SECTION
+Full-bleed section, full-width with symmetric padding (per SECTION LAYOUT).
 ```json
 {
   "type": "container",
   "orientation": "vertical",
   "width": {"type": "match_parent"},
   "height": {"type": "wrap_content"},
-  "paddings": {"left": 24, "right": 24, "top": 64, "bottom": 64},
+  "content_alignment_horizontal": "center",
   "items": [
     {
       "type": "container",
-      "orientation": "horizontal",
-      "width": {"type": "match_parent"},
-      "items": [
-        {"type": "text", "text": "Latest from Our Blog", "font_size": 32, "font_weight": "bold", "text_color": "#1A1A1A"},
-        {"type": "text", "text": "View All →", "font_size": 14, "font_weight": "medium", "text_color": "#4F46E5", "width": {"type": "wrap_content"}, "action": {"log_id": "blog_view_all", "url": "action://blog"}}
-      ]
-    },
-    {
-      "type": "gallery",
       "orientation": "vertical",
-      "column_count": 3,
-      "item_spacing": 20,
+      "width": {"type": "match_parent"},
       "height": {"type": "wrap_content"},
-      "margins": {"top": 32},
+      "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
       "items": [
+        {
+          "type": "container",
+          "orientation": "horizontal",
+          "width": {"type": "match_parent"},
+          "items": [
+            {"type": "text", "text": "Latest from Our Blog", "font_size": 32, "font_weight": "bold", "text_color": "#1A1A1A"},
+            {"type": "text", "text": "View All →", "font_size": 14, "font_weight": "medium", "text_color": "#4F46E5", "width": {"type": "wrap_content"}, "action": {"log_id": "blog_view_all", "url": "action://blog"}}
+          ]
+        },
+        {
+          "type": "gallery",
+          "orientation": "vertical",
+          "column_count": 3,
+          "item_spacing": 20,
+          "width": {"type": "match_parent"},
+          "height": {"type": "wrap_content"},
+          "margins": {"top": 32},
+          "items": [
         {
           "type": "_template_blog_card",
           "action": {"log_id": "blog_1", "url": "action://blog_1"},
@@ -895,51 +958,62 @@ RULES:
           ]
         }
       ]
+        }
+      ]
     }
   ]
 }
 ```
 
 ### PARTNERS/TRUST SECTION
+Full-bleed section, full-width with symmetric padding. Keep it short (~100–120px
+total, per FIRST-SCREEN RULE) — the logo gallery uses `match_parent` width and
+`content_alignment_horizontal: center` so logos stay centered in the section,
+never `wrap_content` (see HORIZONTAL GALLERIES).
 ```json
 {
   "type": "container",
   "orientation": "vertical",
   "width": {"type": "match_parent"},
   "height": {"type": "wrap_content"},
-  "paddings": {"top": 48, "bottom": 48, "left": 24, "right": 24},
   "background": [{"type": "solid", "color": "#F8F9FA"}],
   "content_alignment_horizontal": "center",
   "items": [
-    {"type": "text", "text": "Trusted by Industry Leaders", "font_size": 14, "font_weight": "medium", "text_color": "#999999", "text_alignment_horizontal": "center", "letter_spacing": 2},
     {
-      "type": "gallery",
-      "orientation": "horizontal",
-      "item_spacing": 40,
-      "width": {"type": "wrap_content"},
+      "type": "container",
+      "orientation": "vertical",
+      "width": {"type": "match_parent"},
       "height": {"type": "wrap_content"},
-      "margins": {"top": 32},
-      "paddings": {"left": 16, "right": 16},
+      "paddings": {"left": 48, "right": 48, "top": 40, "bottom": 40},
       "items": [
-        {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+1", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
-        {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+2", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
-        {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+3", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
-        {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+4", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"}
+        {"type": "text", "text": "Trusted by Industry Leaders", "font_size": 14, "font_weight": "medium", "text_color": "#999999", "text_alignment_horizontal": "center", "letter_spacing": 2},
+        {
+          "type": "gallery",
+          "orientation": "horizontal",
+          "item_spacing": 40,
+          "width": {"type": "match_parent"},
+          "height": {"type": "wrap_content"},
+          "content_alignment_horizontal": "center",
+          "margins": {"top": 24},
+          "items": [
+            {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+1", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+            {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+2", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+            {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+3", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"},
+            {"type": "image", "image_url": "https://placehold.co/120x40/CCCCCC/666666.png?text=Logo+4", "width": {"type": "fixed", "value": 120}, "height": {"type": "fixed", "value": 40}, "scale": "fit"}
+          ]
+        }
       ]
     }
   ]
 }
 ```
-### CENTERING HORIZONTAL GALLERIES — MANDATORY
-A gallery defaults to match_parent width and ALWAYS left-aligns its items;
-the parent's content_alignment cannot move them. Any horizontal gallery
-whose total content width (items + spacing) is clearly narrower than a
-desktop page — logo bars, 2–5 card rows — MUST set:
-  "width": {"type": "wrap_content"}
-and its parent container MUST set:
-  "content_alignment_horizontal": "center"
-Leave gallery width as match_parent ONLY when there are enough items to
-overflow and scroll at desktop widths (6+ full-size cards).
+### HORIZONTAL GALLERIES — MANDATORY
+Every horizontal gallery takes `"width": {"type": "match_parent"}` so it fills
+its section's full content width (between the 48 gutters).
+Do NOT use `"width": {"type": "wrap_content"}` + a centered parent to shrink a
+gallery — that is exactly what leaves carousels and logo bars stranded in a sea
+of empty space while other sections span the page. Keep every row full-width so
+all sections share one left/right edge.
 ---
 
 ## TEXT CONTRAST RULES (MANDATORY)
@@ -1050,26 +1124,93 @@ Before output:
 Every website home page must have AT LEAST 7 distinct sections from the available types. This ensures a complete, professional website feel.
 
 ### FIRST-SCREEN RULE (Desktop Web) — MANDATORY
-DivKit has no viewport units (no vh/vw), so first-screen sizing uses fixed
-heights chosen from a height budget:
+The hero must dominate the first screen. DivKit has no viewport units (no
+vh/vw), so the hero uses a fixed height from a budget:
 
-1. If the user message contains a "Target Viewport:" line (e.g. "Target
-   Viewport: 1920x1080"), use that height as the budget.
-2. Otherwise assume a common desktop viewport (1280–1920 wide, 800–1080
-   tall) and design to a ~950–1000px budget so it works across that range.
+- If the user message has a "Target Viewport:" line (e.g. "Target Viewport:
+  1920x1080"), use its height as the budget; otherwise assume ~950–1000px for
+  a 1280–1920 desktop.
+- Hero height = budget − navbar (~70–80px) − trust bar (~100–120px, if used),
+  with `"content_alignment_vertical": "center"`. This lands around 700–830px.
+  NEVER a 400–600px hero for web.
 
-The budget must be filled by exactly: Navbar + Hero + Trust Bar (if used).
-- Navbar: ~70–80px (wrap_content)
-- Hero: "height": {"type": "fixed", "value": budget − navbar − trust bar},
-  with "content_alignment_vertical": "center". With the default assumption
-  this lands at 680–780px. NEVER wrap_content with small paddings, NEVER
-  400–600px for web.
-- Trust bar: ~180–220px, placed directly after the hero so it closes the
-  first screen.
-- No trust bar → the hero absorbs its space.
+The first screen is filled by exactly Navbar + Hero + Trust Bar (if used). A
+trust bar is short (~100–120px) — do NOT pad it into an empty 180–220px band.
+No trust bar → the hero absorbs its space. Nothing from the features/content
+sections should be visible before the first scroll.
 
-Nothing from the features/content sections should be visible before the
-first scroll at the budgeted height.
+### SECTION LAYOUT — MANDATORY
+Every section spans the FULL width of the page and fills it symmetrically — the
+same left and right gutter on both sides — so no section is ever pinned to one
+edge with empty space on the other. Do NOT use a fixed-width or `max_size`-capped
+inner column: a `fixed` column overflows on narrow screens, and a capped
+`match_parent` column renders LEFT-pinned (the cap leaves the empty space all on
+the right). Full-width + symmetric padding is what reads as balanced/centered.
+
+- The SECTION container is `{"type": "match_parent"}` with the background
+  (full-bleed solid/gradient/image), the horizontal padding (48 left AND 48
+  right — always symmetric), and `"content_alignment_horizontal": "center"` so
+  headings and centered rows sit in the middle.
+- Content (headings, grids, carousels, text, stat rows) goes directly inside,
+  filling the width between the two 48 gutters.
+- EVERY content section follows this — feature grids, carousels, testimonials,
+  stats, CTA banners, footer alike — so all sections share the same left/right
+  edge and the page reads as one aligned column.
+
+Skeleton:
+```json
+{
+  "type": "container",
+  "orientation": "vertical",
+  "width": {"type": "match_parent"},
+  "height": {"type": "wrap_content"},
+  "background": [{"type": "solid", "color": "#FFFFFF"}],
+  "paddings": {"left": 48, "right": 48, "top": 72, "bottom": 72},
+  "content_alignment_horizontal": "center",
+  "items": [ /* headings, gallery, etc. */ ]
+}
+```
+
+### SECTION SPACING
+- Vary vertical padding — do NOT stamp one value (e.g. 72) on every section.
+  Use tiers: COMPACT 56 · STANDARD 72 · SPACIOUS 96. Alternate them so the
+  page has rhythm and focal points instead of a flat wall.
+- Make the CTA banner SPACIOUS (96 top/bottom) so it is the strongest block
+  on the page — never LESS padding than the content sections around it.
+- Logo / trust bars: ~100–120px total (see first-screen rule) — never padded
+  out to 180–220px.
+- Use ONE horizontal gutter everywhere: 48 on the content column. Do not mix
+  24 / 32 / 48 between sections.
+
+### VISUAL HIERARCHY — MANDATORY
+Make importance obvious; never give every section equal weight.
+- ONE focal element per section. The section heading (or the CTA) is the clear
+  anchor — everything else is visibly smaller/lighter.
+- Keep real size steps between levels (use the Web Typography Scale, do not
+  flatten): hero headline 40–48 ▸ section heading 30–36 ▸ card title 18–22 ▸
+  body 14–16 ▸ caption 12–13. Each level noticeably larger than the one below.
+- The HERO and the CTA banner are the two loudest blocks on the page: largest
+  type, boldest weight, and a contrasting background (gradient / dark / brand
+  color) — NOT the same treatment as an ordinary content section.
+- Never place two adjacent sections with identical visual weight. Between
+  neighbours, change at least one of: background (light ↔ dark ↔ gradient),
+  heading size, or density tier.
+- De-emphasize support text: subtitles / meta use a muted color (e.g. #666666
+  on light, #A6A9B4 on dark) and a smaller size, so headings lead the eye.
+
+### WHITESPACE — SPACING LADDER
+Whitespace GROUPS related things and SEPARATES unrelated ones. Use consistent
+element gaps (margins), never arbitrary values:
+- Heading → subtitle: 12
+- Subtitle → content block (grid / gallery / paragraph): 32–40
+- Inside a card: image → title 12–14, title → description 8
+- CTA / button row → the block above it: 28–32
+- Related items stay close (gap ≤ 12); unrelated groups get a large gap (≥ 32)
+- Section → section is handled by the padding tiers (56 / 72 / 96), not by
+  extra margins.
+PROXIMITY RULE: if two elements belong together, their gap MUST be clearly
+smaller than the gap to the next group. Equal gaps everywhere = no grouping =
+flat page.
 
 ### Recommended Section Flow
 A typical stunning website home page follows this pattern:
@@ -1180,7 +1321,12 @@ Before outputting JSON, verify:
 - [ ] Spacing rhythm (alternating generous/comfortable padding)
 - [ ] No invisible text
 - [ ] All transparent colors use alpha-FIRST format (#AARRGGBB)
-- [ ] Navbar + hero + trust bar fill the first-screen budget; narrow horizontal galleries use wrap_content width inside a centered parent.
+- [ ] Hero uses a fixed height from the first-screen budget (~700–830px); navbar + hero + trust bar fill the first screen (trust bar ~100–120px, not padded into an empty band)
+- [ ] Every section is full-width (`match_parent`) with SYMMETRIC padding (48 left AND 48 right) so content fills evenly and is never pinned to one edge; backgrounds full-bleed; galleries use match_parent width (never wrap_content + centered)
+- [ ] Section vertical padding varies (compact 56 / standard 72 / spacious 96); the CTA banner is spacious and the strongest block
+- [ ] Each section has ONE clear focal element; hero and CTA are the loudest (largest type + contrasting background)
+- [ ] No two adjacent sections share identical visual weight (background / heading size / density differs)
+- [ ] Element gaps follow the spacing ladder (related ≤ 12, groups ≥ 32) — grouping is visible, not uniform
 
 **Content:**
 - [ ] Domain-specific text throughout
